@@ -1,0 +1,26 @@
+commit ce6793ccc6512da4b62327bd503a643320ae86cc
+Merge: e9940d2 0043196
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Fri May 17 16:19:09 2024 -0600
+
+    Merge pull request #1 from RosaMartinez23/cambios
+    
+    Preparando entorno
+
+commit 0043196f8a920a7dfbdedda4761dc523f06b2a99
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Fri May 17 16:14:34 2024 -0600
+
+    Preparando entorno
+
+commit e9940d237546e6a83822661d4dd6a7b63b0c9a4c
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Fri May 17 15:59:27 2024 -0600
+
+    Inicializando Proyecto
+
+commit efd4d48a1663daf76efbb26259fc27cb1ed7be1f
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Fri May 17 15:56:58 2024 -0600
+
+    Initialize project using Create React App
