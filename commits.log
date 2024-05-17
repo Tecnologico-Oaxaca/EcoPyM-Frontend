@@ -1,3 +1,24 @@
+commit 21bdd0afd34cc8602bc88f5a474848c386078e6d
+Merge: 1c7fd4a 0fb6ff9
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Fri May 17 16:34:10 2024 -0600
+
+    Merge pull request #2 from RosaMartinez23/eliminar
+    
+    Solucionando el error VitalJs
+
+commit 0fb6ff951898a05f6e36760748c77d69ae2c50cd
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Fri May 17 16:31:30 2024 -0600
+
+    Solucionando el error VitalJs
+
+commit 1c7fd4abfb6465b5931218d8d70087e5d438a6ca
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Fri May 17 16:28:25 2024 -0600
+
+    Actualizando log commit
+
 commit ce6793ccc6512da4b62327bd503a643320ae86cc
 Merge: e9940d2 0043196
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
