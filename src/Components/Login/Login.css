@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+.login-container {
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh; 
+}
+.login-left {
+    display: flex;
+    width: 40%; /* Establece el ancho del .left al 35% del contenedor */
+}
+  /* Asigna anchos específicos a cada sección. La suma de los flex-basis debería ser 100% para llenar .left */
+.login-section1 {
+    flex: 4;
+    background-color: #1ABBC0;
+}
+.login-section2 {
+    flex: 3;
+    background-color: #2CD5D8;
+}
+.login-section3 {
+    flex: 2.5;
+    background-color: #75EBEB;
+}
+.login-section4 {
+    flex: 2;
+    background-color: #D4F9F8;
+}
+.login-right {
+    flex-grow: 3; /* Toma el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+.login-content-img{
+    margin-top: 0px;
+    margin-bottom:8px;
+    display: flex;
+    justify-content: center;
+}
+  /* Estilos para el logotipo, encabezados, formulario y botones */
+.login-logo {
+    height: 110px;
+}
+.login-title {
+    color: #333; /* Color del texto para el encabezado */
+}
+
+.login-message {
+    color: #555; /* Color del texto para el subencabezado */
+    margin-top: 0.5rem; /* Ajusta el espacio encima del mensaje */
+    margin-bottom: 2rem;
+    font-size: 14px; /* Ajusta el tamaño del texto */
+}
+
+  /* Estilos para el formulario y sus elementos */
+.login-form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los input-group verticalmente */
+    justify-content: center; /* Centra los input-group horizontalmente */
+    width: 100%;
+}
+.login-input-group {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%; /* O el ancho que prefieras para tu grupo de entrada */
+}
+.login-input-group label {
+    align-self: flex-start;
+    font-size: 13px;
+    margin-bottom: 7px; /* Ajusta esto según la separación que desees entre el label y el input */
+    /* Si necesitas alinear el texto del label con el texto del input, puedes ajustar el padding-top */
+}
+
+.login-input-container {
+    display: flex;
+    align-items: center; /* Esto asegura que el ícono y el input estén alineados verticalmente */
+    position: relative;
+    width: 100%;
+}
+.login-input-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 28px;
+    left: 10px; /* Ajusta según la posición exacta del ícono dentro del input */
+}  
+.login-input-group input {
+    width: 100%; /* El input toma el ancho completo del .input-container */
+    padding: 10px 35px; /* Añade padding a la izquierda para el ícono */
+    margin-bottom: 1rem; /* Ajusta según la separación que desees después del input */
+    border: none;
+    border-bottom: 1px solid black;
+}  
+  /* Ajusta la posición del ícono de 'ojo' según sea necesario */
+.login-eye-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 28px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+.login-buttons-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.login-ingresar-button {
+    background-color: #F0FBFB;
+    width: 50%;
+    border: 0.5px solid black;
+    color: black;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    padding: 10px;
+    font-size: 1rem;
+}
+.login-registro-button {
+    margin-top: 25px;
+    background-color: #A3DAE0;
+    color: black;
+}
+.login-codigo-button {
+    background-color: #66C5D2;
+    color: black;
+}
+.login-olvidar-contraseña-a {
+    color: #363535;
+    text-align: right;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
