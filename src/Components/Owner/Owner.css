@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
+.owner-container{
+    position: relative; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.owner-container-header{
+    overflow: visible;
+    display: flex;
+    background-color: rgba(131, 249, 249,0.60); /* Ajusta este color al que necesites */
+    border-radius: 0px 0px 10px 10px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interior */
+    margin: 0px 25%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 120px;
+    padding-top: 20px;
+    position: relative;
+    
+}
+
+
+.owner-container-img{
+    background-color: #ffffff; 
+    border-radius: 50%; 
+    width: 95px; /* Mantiene el círculo del mismo tamaño independientemente del contenido */
+    height: 95px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Permite posicionar libremente el círculo */
+    top: 50%; /* Mueve el círculo hacia arriba para que la mitad esté fuera */
+    left: 50%; /* Centra el círculo horizontalmente */
+    transform: translateX(-50%);
+}
+
+.owner-button-img{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 70px; /* Tamaño del icono de la cámara */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.owner-icon-camara{
+    width: 90%;
+    height: 100%;
+}
+
+
+.owner-Content-form{
+    border-radius: 10%;
+    padding: 25px;
+    padding-bottom: 10px;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+.owner-title{
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.owner-line-title {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor padre */
+    border: none; /* Remueve el borde predeterminado */
+    height: 1px; /* Ajusta la altura para hacerlo parecer una línea */
+    background-color: #666; /* Color de la línea */
+    margin: 10px 0; 
+    position: relative;
+    margin-left: -0%;
+}
+
+.owner-inputGroups-container {
+    display: flex; 
+    justify-content: space-between;
+    
+}
+
+.owner-inputGroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.owner-inputGroup label{
+    font-size: 14px;
+    color: #333; /* Color de la etiqueta */
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+.owner-inputGroup input {
+    flex: 1;
+    padding: 10px 25px;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    background-color: transparent;
+    margin: 10px;
+    width: 200px;
+}
+
+.owner-input-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+.owner-input-Icon{
+    position: absolute;
+    color: #aaa;
+    margin: 0px 15px;
+    flex-shrink: 0;
+}
+
+.owner-password-error {
+    color: red;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.owner-buttons{
+    display: flex; 
+    justify-content: space-between;
+}
+
+button.owner-submit-button {
+    width: 35% ;
+    right: 30px; 
+    justify-content: center;
+    border: 0px solid;
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    margin: 30px;
+}
+
+#owner-button-cancelar{
+    background-color: #83F9F9;
+}
+#owner-button-siguiente{
+    background-color: #48BDCD;
+}
+
+button.owner-submit-button-e:hover {
+    background-color: #1ABBC0;
+}
+.owner-arrow-Icon-e{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}

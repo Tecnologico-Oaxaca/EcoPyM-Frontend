@@ -1,0 +1,31 @@
+.notification-mensaje {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    background-color: #fff8e1;  /* Color de fondo amarillo claro */
+    color: #565013;             /* Color de texto oscuro */
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: 1px solid #545511;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .notification-icon {
+    color: #524100;  /* Color amarillo del ícono */
+    margin-right: 10px;
+    font-size: 24px;
+    background-color: #ffcc00;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  
+  .notification-close-icon {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #666;     /* Color gris para el ícono de cerrar */
+    font-size: 20px;
+  }
+  

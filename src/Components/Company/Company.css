@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
+.owner-container-e{
+    position: relative; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+.owner-details-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 70px;
+}
+
+
+.owner-container-header-e{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(131, 249, 249,0.60); /* Ajusta este color al que necesites */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interior */
+    margin: 0px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    height: 200px;
+}
+
+.owner-container-img-e{
+    background-color: #ffffff; 
+    border-radius: 50%; 
+    width: auto;
+    height: 95px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 80px;
+    margin-right: 50px;
+
+}
+
+.owner-button-img-e{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 90px; /* Tamaño del icono de la cámara */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.owner-icon-camara-e{
+    width: 90%;
+    height: 100%;
+}
+
+.owner-container-information-e h4{
+    margin: 0 0 0px 0; /* Ajusta el margen como necesites */
+    color: #333;
+    font-size: 18px;
+}
+
+.owner-container-information-e p {
+    margin: 0;
+    color: #666;
+    font-size: 16px; /* Tamaño del subtítulo */
+}
+
+.Owner-ProgressBar-e{
+    position: relative;
+    width: 40%; /* Ajusta según necesites */
+    height: 40px;
+    margin: 40px auto -15px auto;/* Centra el contenedor */
+    display: flex; /* Usa flexbox para alinear los círculos */
+    justify-content: space-between; /* Distribuye los elementos uniformemente */
+    align-items: center;
+    
+}
+.Owner-ProgressBar-e p{
+    text-align: center;
+    margin-top: 9px;
+    color:#666;
+}
+
+.Owner-ProgressBar-e .Owner-ProgressBar-circle-e{
+    background-color: rgb(199, 238, 242);/* Color de los círculos */
+    border-radius: 50%; /* Hace los bordes redondos */
+    width: 35px; /* Ancho de los círculos */
+    height: 35px;
+}
+
+.Owner-ProgressBar-e .Owner-ProgressBar-avance-e{
+    position: absolute;
+    /* Usar un gradiente lineal para cambiar el color a la mitad */
+    background-color: rgb(199, 238, 242);
+    height: 4px; /* Altura de la barra */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    top: 50%; /* Posiciona en el centro verticalmente */
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+#Owner-ProgressBar-1-e{
+    background-color: #83d7da;
+    width: 40px;
+    height: 40px;
+}
+
+.owner-Content-form-e{
+    border-radius: 10%;
+    padding: 25px;
+    padding-bottom: 10px;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    margin: 0px 30px;
+    margin-top: 0px;
+}
+.owner-main-form-e {
+    width: 90%;
+}
+
+.owner-title-e{
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.owner-inputGroup-e{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.owner-inputGroup-e label{
+    font-size: 14px;
+    color: #333; /* Color de la etiqueta */
+    margin-bottom: 5px;
+}
+
+.owner-inputGroup-e input {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.owner-input-container-e{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border-bottom: 1px solid #aaa;
+}
+
+.owner-input-Icon-e{
+    color: #aaa;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+button.owner-submit-button-e {
+    display: flex;
+    background-color: rgba(26, 187, 192,.50);
+    position: absolute; 
+    width: 20% ;
+    right: 30px; 
+    bottom: 25px; 
+    justify-content: center;
+    border: 0px solid;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+button.owner-submit-button-e:hover {
+    background-color: #1ABBC0;
+}
+.owner-arrow-Icon-e{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
