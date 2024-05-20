@@ -2,10 +2,18 @@ import React from 'react'
 import logo from "../../img/LogoEcoPyM.png";
 import { BsEnvelope } from "react-icons/bs";
 import { MdLockOutline } from "react-icons/md";
-import "./Login.css"
+import "./Login.css";
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Login() {
+
+    const navigate = useNavigate();
+
+    const GoToRegistration = () => {
+        navigate('/registro');
+    };
 
   return (
     <div className="login-container">
@@ -49,7 +57,7 @@ function Login() {
             <a className="login-olvidar-contraseña-a" href="/forgot-password">¿Olvidaste tu contraseña?</a>
             <button className="login-ingresar-button" type="submit" >Ingresar</button>
             <div className="login-buttons-container">
-                <button className="login-registro-button" type="button">Registrarme</button>
+                <button className="login-registro-button" type="button" onClick={GoToRegistration}>Registrarme</button>
                 <button className="login-codigo-button" type="button" >Tengo un código</button>
             </div>
             </form>
@@ -61,4 +69,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login;
