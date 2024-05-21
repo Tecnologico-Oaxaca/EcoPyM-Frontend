@@ -1,3 +1,24 @@
+commit 46e60f193ed2171d0793c596533e5a7e5f62aa62
+Merge: f7d33ec 473507c
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Tue May 21 13:28:32 2024 -0600
+
+    Merge pull request #5 from RosaMartinez23/Company
+    
+    Creación interfaz Company
+
+commit 473507c8e11912db66165feb7ed7448be0938a3a
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Tue May 21 13:21:15 2024 -0600
+
+    Creación interfaz Company
+
+commit f7d33ec8b990c5d46d9837a91338e1a4dbb911b3
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Sun May 19 19:05:40 2024 -0600
+
+    Actualizando log commits
+
 commit c1d077b543b0ada402d24b3a0dc3d4da6d35ff0d
 Merge: 8b18050 eec1286
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
