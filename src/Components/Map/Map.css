@@ -1,0 +1,26 @@
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Transparencia negra */
+    z-index: 2; /* Asegúrate de que sea mayor que el mapa pero menor que otros controles o pop-ups */
+  }
+
+.map-wrapper {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    position: relative;
+  }
+
+.map-Container{
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    border-radius: 5px;
+    margin: 0px;
+}

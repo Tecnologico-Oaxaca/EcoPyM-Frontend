@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: center;
     width: 50%;
-    height: 120px;
+    height: 15vh;
     padding-top: 20px;
     position: relative;
     
@@ -28,14 +28,14 @@
 .owner-container-img{
     background-color: #ffffff; 
     border-radius: 50%; 
-    width: 95px; /* Mantiene el círculo del mismo tamaño independientemente del contenido */
-    height: 95px;
+    width: 10vw; /* Mantiene el círculo del mismo tamaño independientemente del contenido */
+    height:10vw;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute; /* Permite posicionar libremente el círculo */
-    top: 50%; /* Mueve el círculo hacia arriba para que la mitad esté fuera */
+    top: 30%; /* Mueve el círculo hacia arriba para que la mitad esté fuera */
     left: 50%; /* Centra el círculo horizontalmente */
     transform: translateX(-50%);
 }
@@ -58,6 +58,7 @@
 
 
 .owner-Content-form{
+    max-width: 800px;
     border-radius: 10%;
     padding: 25px;
     padding-bottom: 10px;
@@ -67,7 +68,7 @@
     align-items: center;
     justify-content: center;
     width: 45%;
-    margin: auto;
+    margin: 0 auto;
     margin-top: 20px;
 }
 
@@ -75,7 +76,8 @@
 .owner-title{
     font-size: 1.2em;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0vh;
+    margin-top: 5vh;
 }
 
 .owner-line-title {
@@ -91,6 +93,7 @@
 .owner-inputGroups-container {
     display: flex; 
     justify-content: space-between;
+    gap: 10px;
     
 }
 
@@ -173,4 +176,37 @@ button.owner-submit-button-e:hover {
     margin-left: 10px;
     width: 20px;
     height: 20px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .owner-Content-form {
+        padding: 15px;
+        max-width: 600px; /* Reduce el ancho máximo en pantallas más pequeñas */
+    }
+
+    .owner-inputGroup {
+        flex-direction: column; /* Apila los labels y inputs verticalmente */
+    }
+
+    .owner-input-container {
+        flex-direction: column;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+        margin-left: 0; /* Elimina el margen lateral cuando está en formato vertical */
+    }
+}
+
+@media (max-width: 480px) {
+    .owner-Content-form {
+        padding: 10px;
+        max-width: 90%; /* Aprovecha más espacio en pantallas muy pequeñas */
+    }
+
+    .owner-inputGroup {
+        margin-bottom: 10px; /* Asegura suficiente espacio entre los grupos de input en formato vertical */
+    }
 }
