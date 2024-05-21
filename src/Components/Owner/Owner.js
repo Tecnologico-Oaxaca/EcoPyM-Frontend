@@ -38,8 +38,8 @@ function Owner() {
             navigate('/registro/miNegocio');
         }
     };
-    const GoToLogin = () => {
-        navigate('/');
+    const GoToCompany = () => {
+        navigate('/registro');
     };
 
 
@@ -158,7 +158,7 @@ function Owner() {
                 </div>  
                 {passwordError && <div className="owner-password-error">{passwordError}</div>}
                 <div className="owner-buttons">
-                    <button type="submit" className="owner-submit-button" id='owner-button-cancelar' onClick={GoToLogin}>
+                    <button type="submit" className="owner-submit-button" id='owner-button-cancelar' onClick={GoToCompany}>
                         Cancelar <FaChevronCircleRight className="owner-arrow-Icon"/>
                     </button>
                     <button type="submit" className="owner-submit-button" id='owner-button-siguiente' onClick={OwnerhandleClick}>

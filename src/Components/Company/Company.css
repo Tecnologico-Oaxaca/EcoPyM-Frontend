@@ -1,192 +1,132 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
 
-.owner-container-e{
-    position: relative; 
-    font-family: 'Montserrat', sans-serif;
+.Company-container-header{
+    display: flex; /* Establece el contenedor como un contenedor Flexbox */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
+    align-items: flex-start; /* Alinea los elementos hijos al inicio del eje vertical */
+    gap: 20px;
 }
 
+.company-container-seccion1, .company-container-seccion2 {
+    flex: 1; /* Permite que ambos elementos tomen espacio igual, ajusta según sea necesario */
+    min-width: 0; /* Ayuda a evitar problemas de desbordamiento */
+  }
+  
+  .company-container-seccion1 {
+    margin: 0px; 
+    background-color: #aaa;
+  }
+
+  .company-container-seccion2 {
+    flex: 1.5; /* La segunda sección tomará dos partes del espacio */
+    min-width: 0; /* Ayuda a evitar problemas de desbordamiento */
+    max-height: 100vh;
+  }
 
 
-.owner-details-container{
-    display: flex;
-    justify-content: space-between;
-    margin: 70px;
-}
-
-
-.owner-container-header-e{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(131, 249, 249,0.60); /* Ajusta este color al que necesites */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 5px; /* Espaciado interior */
-    margin: 0px 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    height: 200px;
-}
-
-.owner-container-img-e{
-    background-color: #ffffff; 
+.company-container-img{
+    position: relative;
+    left: 50%;    
+    transform: translateX(-50%);
+    width: 6vw; /* Mantiene el círculo del mismo tamaño independientemente del contenido */
+    height:6vw;
+    background-color: #01BAB3; 
     border-radius: 50%; 
-    width: auto;
-    height: 95px;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 80px;
-    margin-right: 50px;
-
+    left: 50%; /* Centra el círculo horizontalmente */
+    top: 4vh;
+    
 }
 
-.owner-button-img-e{
+.company-button-img{
     border: none;
     background: none;
     cursor: pointer;
-    font-size: 90px; /* Tamaño del icono de la cámara */
+    font-size: 70px; /* Tamaño del icono de la cámara */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #333;
+    color: #ffffff;
 }
 
-.owner-icon-camara-e{
+.company-icon-camara{
     width: 90%;
     height: 100%;
 }
 
-.owner-container-information-e h4{
-    margin: 0 0 0px 0; /* Ajusta el margen como necesites */
-    color: #333;
-    font-size: 18px;
-}
 
-.owner-container-information-e p {
-    margin: 0;
-    color: #666;
-    font-size: 16px; /* Tamaño del subtítulo */
-}
-
-.Owner-ProgressBar-e{
-    position: relative;
-    width: 40%; /* Ajusta según necesites */
-    height: 40px;
-    margin: 40px auto -15px auto;/* Centra el contenedor */
-    display: flex; /* Usa flexbox para alinear los círculos */
-    justify-content: space-between; /* Distribuye los elementos uniformemente */
-    align-items: center;
-    
-}
-.Owner-ProgressBar-e p{
-    text-align: center;
-    margin-top: 9px;
-    color:#666;
-}
-
-.Owner-ProgressBar-e .Owner-ProgressBar-circle-e{
-    background-color: rgb(199, 238, 242);/* Color de los círculos */
-    border-radius: 50%; /* Hace los bordes redondos */
-    width: 35px; /* Ancho de los círculos */
-    height: 35px;
-}
-
-.Owner-ProgressBar-e .Owner-ProgressBar-avance-e{
-    position: absolute;
-    /* Usar un gradiente lineal para cambiar el color a la mitad */
-    background-color: rgb(199, 238, 242);
-    height: 4px; /* Altura de la barra */
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    top: 50%; /* Posiciona en el centro verticalmente */
-    transform: translateY(-50%);
-    z-index: -1;
-}
-
-#Owner-ProgressBar-1-e{
-    background-color: #83d7da;
-    width: 40px;
-    height: 40px;
-}
-
-.owner-Content-form-e{
+.company-Content-form{
     border-radius: 10%;
-    padding: 25px;
-    padding-bottom: 10px;
-    background-color:white;
+    padding: 0px 25px 25px 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 45%;
-    margin: 0px 30px;
-    margin-top: 0px;
-}
-.owner-main-form-e {
-    width: 90%;
+    margin: 6vh auto;
 }
 
-.owner-title-e{
+.company-title{
     font-size: 1.2em;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0vh;
+    margin-top: 5px;
+}
+.company-line-title {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor padre */
+    border: none; /* Remueve el borde predeterminado */
+    height: 1px; /* Ajusta la altura para hacerlo parecer una línea */
+    background-color: #666; /* Color de la línea */
+    margin: 10px 0; 
+    position: relative;
+    margin-left: -0%;
 }
 
-.owner-inputGroup-e{
+.company-inputGroups-container {
+    display: flex; 
+    justify-content: space-between;
+    gap: 10px;
+    
+}
+
+.company-inputGroup{
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-.owner-inputGroup-e label{
+.company-inputGroup label{
     font-size: 14px;
     color: #333; /* Color de la etiqueta */
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    padding-left: 10px;
 }
 
-.owner-inputGroup-e input {
+.company-inputGroup input {
     flex: 1;
-    padding: 10px 0;
-    border: none;
+    padding: 10px 25px;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
     outline: none;
     background-color: transparent;
+    margin: 10px;
+    width: 200px;
 }
 
-.owner-input-container-e{
+.company-input-container{
+    position: relative;
     display: flex;
     align-items: center;
     background-color: transparent;
-    border-bottom: 1px solid #aaa;
 }
 
-.owner-input-Icon-e{
+.company-input-Icon{
+    position: absolute;
     color: #aaa;
-    margin-right: 10px;
+    margin: 0px 15px;
     flex-shrink: 0;
-}
-
-button.owner-submit-button-e {
-    display: flex;
-    background-color: rgba(26, 187, 192,.50);
-    position: absolute; 
-    width: 20% ;
-    right: 30px; 
-    bottom: 25px; 
-    justify-content: center;
-    border: 0px solid;
-    border-radius: 20px;
-    padding: 10px;
-    font-size: 16px;
-    color: #000000;
-    font-family: 'Montserrat', sans-serif;
-
-}
-
-button.owner-submit-button-e:hover {
-    background-color: #1ABBC0;
-}
-.owner-arrow-Icon-e{
-    margin-left: 10px;
-    width: 20px;
-    height: 20px;
 }

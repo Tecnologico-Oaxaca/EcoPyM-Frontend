@@ -12,8 +12,8 @@ import Company from './Components/Company/Company';
 function App() {
 
   const registroSections = [
-    { id: 1, path: "/registro", title: "Registro", Icon: RiUser3Fill },
-    { id: 2, path: "/registro/miNegocio", title: "Datos de la Empresa", Icon: SiHomeassistantcommunitystore },
+    { id: 1, path: "/registro", title: "Datos de la Empresa", Icon: SiHomeassistantcommunitystore },
+    { id: 2, path: "/registro/miNegocio", title: "Registro Propietario", Icon: RiUser3Fill },
     { id: 3, path: "/registro/MisEmpleados", title: "Registro Empleado", Icon: HiMiniUserGroup },
   ];
 
@@ -23,8 +23,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/registro' element={<Layout sections={registroSections} />}>
-          <Route index element={<Owner />} />
-          <Route path='miNegocio' element={<Company />} />
+          <Route index element={<Company />} />
+          <Route path='miNegocio' element={<Owner />} />
       </Route>
 
       </Routes>
