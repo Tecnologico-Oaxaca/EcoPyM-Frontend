@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { fetchSectors } from '../../services/apiBusinesService';
 import "./Company.css";
 import Map from '../Map/Map';
 import { FaCamera } from "react-icons/fa";
@@ -27,19 +28,9 @@ function Company() {
   const [passwordError, setPasswordError] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/busine')
-      .then(response => {
-        if (!response.ok) {
-          return response.json().then(data => {
-            throw new Error(data.message);
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.status === 200 && data.data) {
-          setSectors(data.data);
-        }
+    fetchSectors()
+      .then(sectorsData => {
+        setSectors(sectorsData);
       })
       .catch(error => {
         setNotification({ show: true, message: "No se pudo conectar con la API" });
