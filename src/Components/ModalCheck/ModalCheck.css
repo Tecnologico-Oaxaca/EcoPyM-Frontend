@@ -1,0 +1,94 @@
+.ModalCheck-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 50px;
+    z-index: 1050;
+}
+
+.ModalCheck-container {
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1051; /* Asegura que el modal esté por encima del overlay */
+    width: auto; /* Ajusta la anchura máxima del modal */
+    margin-bottom: 10%;
+    margin-right: -25%; 
+}
+
+.ModalCheck-container-form {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.ModalCheck-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.ModalCheck-submit-button{
+    display: flex;               /* Hace que los elementos hijos (ícono y texto) se alineen en una fila */
+    align-items: center;         /* Centra los elementos hijos verticalmente */
+    justify-content: center;     /* Centra los elementos hijos horizontalmente */
+    padding: 10px 20px;          /* Espaciado adecuado dentro del botón */
+    margin: 5px;                 /* Margen entre botones si es necesario */
+    border-radius: 5px;          /* Bordes redondeados para estética */
+    font-size: 16px;             /* Tamaño de fuente adecuado */
+    cursor: pointer;             /* Cursor de mano para indicar que es clickeable */
+    border: none;                /* No mostrar borde */
+    background-color: #f0f0f0;   /* Color de fondo del botón */
+    color: #333;                 /* Color de texto */
+    transition: background-color 0.3s; /* Transición suave de color de fondo */
+}
+
+
+.ModalCheck-submit-button{
+    display: flex;               
+    align-items: center;         
+    justify-content: center;   
+    padding: 10px 20px;         
+    margin: 5px;               
+    border-radius: 5px;          
+    font-size: 16px;             
+    cursor: pointer;             
+    border: none;                
+    background-color: #f0f0f0;   
+    color: #000000;                
+    transition: background-color 0.3s;
+    cursor: pointer; 
+}
+
+#ModalCheck-button-No{
+    background-color: rgb(255, 127, 127);
+    border-radius: 30px;
+}
+#ModalCheck-button-Si{
+    background-color: rgb(154, 253, 129);
+    border-radius: 30px;
+}
+
+.ModalCheck-submit-button:hover {
+    opacity: 0.9;
+}
+
+.ModalCheck-arrow-Icon {
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+
+.ModalCheck-arrow-Icon{
+    font-size:14px;
+    color: #000000;
+    padding-top: 5%;
+}
+

@@ -36,6 +36,9 @@ function Company() {
 
   //PONER UN METODO USEREFECT CUANDO SE CONSUMA LA API
   //EMPLEAR SETSECTORS CUANDO SE CONSUMA LA API
+  
+
+
 
   const navigate = useNavigate();
 
@@ -115,7 +118,7 @@ function Company() {
                   <label htmlFor="companySector">Sector:</label>
                   <div className="company-input-container">
                     <CiShoppingBasket className="company-input-Icon" />
-                    <select
+                    <select className='employee-custom-select'
                       value={CompanySector}
                       id="companySector"
                       onChange={(e) => setCompanySector(e.target.value)}
