@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSectors } from '../../services/apiBusinesService';
-import { createMipyme } from '../../services/apiMipymeService';
+import { createRegisterBusines } from '../../services/apiRegisterBusines';
 
 import "./Company.css";
 import Map from '../Map/Map';
@@ -49,12 +49,23 @@ function Company() {
 
  const CompanyhandleClick = async (e) => {
   e.preventDefault();
-  const mipymeData = {
-    name: CompanyName,
-    business_ids: [CompanySector]
-  };
+  if (!CompanyName || !CompanySector || !CompanyOpenTime || !CompanyClose || !CompanyState || !CompanyCity || !CompanyDistrict || !CompanyStreet) {
+    setNotification({ show: true, message: "Todos los campos deben estar completos." });
+    return;
+  }
   try {
-    await createMipyme(mipymeData);
+    const registerbusinesdata = {
+      name: CompanyName,
+      business_ids: [CompanySector],
+      open_time: CompanyOpenTime,
+      close_time: CompanyClose,
+      state: CompanyState,
+      city: CompanyCity,
+      district: CompanyDistrict,
+      street: CompanyStreet,
+    };
+    await createRegisterBusines(registerbusinesdata);
+
     navigate('/registro/Propietario');
   } catch (error) {
     if (error instanceof Error) {
