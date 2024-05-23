@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchSectors } from '../../services/apiBusinesService';
+import { createRegisterBusines } from '../../services/apiRegisterBusines';
+
 import "./Company.css";
 import Map from '../Map/Map';
 import { FaCamera } from "react-icons/fa";
@@ -22,23 +25,20 @@ function Company() {
   const [CompanyDistrict, setCompanyDistrict] = useState("");
   const [CompanyCity, setCompanyCity] = useState("");
   const [CompanyStreet, setCompanyStreet] = useState('');
+  const [Sectors, setSectors] = useState([]);
   const [notification, setNotification] = useState({ show: false, message: "" });
   const [passwordError, setPasswordError] = useState('');
-
-  const [Sectors, setSectors] = useState([
-    { id: '1', name: 'Abarrotes' },
-    { id: '2', name: 'Electrónica' },
-    { id: '3', name: 'Ropa' },
-    { id: '4', name: 'Farmacia' },
-    { id: '5', name: 'Restaurantes' },
-    { id: '6', name: 'Otros' }
-  ]);
-
-  //PONER UN METODO USEREFECT CUANDO SE CONSUMA LA API
-  //EMPLEAR SETSECTORS CUANDO SE CONSUMA LA API
   
 
-
+  useEffect(() => {
+    fetchSectors()
+      .then(sectorsData => {
+        setSectors(sectorsData);
+      })
+      .catch(error => {
+        setNotification({ show: true, message: "No se pudo conectar con la API" });
+      });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -46,28 +46,39 @@ function Company() {
     navigate('/');
   };
 
-  const CompanyhandleClick = (e) => {
-    e.preventDefault();
 
-    if (!CompanyName || !CompanySector || !CompanyState || !CompanyDistrict || !CompanyCity || !CompanyStreet) {
-      setNotification({ show: true, message: "Completa tus datos, por favor." });
+ const CompanyhandleClick = async (e) => {
+  e.preventDefault();
+  if (!CompanyName || !CompanySector || !CompanyOpenTime || !CompanyClose || !CompanyState || !CompanyCity || !CompanyDistrict || !CompanyStreet) {
+    setNotification({ show: true, message: "Todos los campos deben estar completos." });
+    return;
+  }
+  try {
+    const registerbusinesdata = {
+      name: CompanyName,
+      business_ids: [CompanySector],
+      open_time: CompanyOpenTime,
+      close_time: CompanyClose,
+      state: CompanyState,
+      city: CompanyCity,
+      district: CompanyDistrict,
+      street: CompanyStreet,
+    };
+    await createRegisterBusines(registerbusinesdata);
+
+    navigate('/registro/Propietario');
+  } catch (error) {
+    if (error instanceof Error) {
+      setNotification({ show: true, message: error.message });
     } else {
-
-      //AQUI RECOLECTO LOS VALORES DE LOS INPUTS
-      console.log("Nombre de la empresa:", CompanyName);
-      console.log("Sector de la empresa:", CompanySector);
-      console.log("Hora de apertura:", CompanyOpenTime);
-      console.log("Hora de cierre:", CompanyClose);
-      console.log("Estado:", CompanyState);
-      console.log("Municipio:", CompanyDistrict);
-      console.log("Colonia:", CompanyCity);
-      console.log("Calle:", CompanyStreet);
-
-
-      setPasswordError('');
-      navigate('/registro/Propietario');
+      Object.values(error).flat().forEach(msg => {
+        setNotification({ show: true, message: msg }); 
+      });
     }
-  };
+  }
+};
+
+
 
   const handleLocationChange = (location) => {
     console.log(location);
@@ -126,7 +137,7 @@ function Company() {
                     >
                       <option value="">Selecciona un sector</option>
                       {Sectors.map((sector) => (
-                        <option key={sector.id} value={sector.name}>{sector.name}</option>
+                        <option key={sector.id} value={sector.id}>{sector.type}</option>
                       ))}
                     </select>
                   </div>
