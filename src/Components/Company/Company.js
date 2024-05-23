@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSectors } from '../../services/apiBusinesService';
+import { createMipyme } from '../../services/apiMipymeService';
+
 import "./Company.css";
 import Map from '../Map/Map';
 import { FaCamera } from "react-icons/fa";
@@ -26,6 +28,7 @@ function Company() {
   const [Sectors, setSectors] = useState([]);
   const [notification, setNotification] = useState({ show: false, message: "" });
   const [passwordError, setPasswordError] = useState('');
+  
 
   useEffect(() => {
     fetchSectors()
@@ -43,28 +46,28 @@ function Company() {
     navigate('/');
   };
 
-  const CompanyhandleClick = (e) => {
-    e.preventDefault();
 
-    if (!CompanyName || !CompanySector || !CompanyState || !CompanyDistrict || !CompanyCity || !CompanyStreet) {
-      setNotification({ show: true, message: "Completa tus datos, por favor." });
-    } else {
-
-      //AQUI RECOLECTO LOS VALORES DE LOS INPUTS
-      console.log("Nombre de la empresa:", CompanyName);
-      console.log("Sector de la empresa:", CompanySector);
-      console.log("Hora de apertura:", CompanyOpenTime);
-      console.log("Hora de cierre:", CompanyClose);
-      console.log("Estado:", CompanyState);
-      console.log("Municipio:", CompanyDistrict);
-      console.log("Colonia:", CompanyCity);
-      console.log("Calle:", CompanyStreet);
-
-
-      setPasswordError('');
-      navigate('/registro/Propietario');
-    }
+ const CompanyhandleClick = async (e) => {
+  e.preventDefault();
+  const mipymeData = {
+    name: CompanyName,
+    business_ids: [CompanySector]
   };
+  try {
+    await createMipyme(mipymeData);
+    navigate('/registro/Propietario');
+  } catch (error) {
+    if (error instanceof Error) {
+      setNotification({ show: true, message: error.message });
+    } else {
+      Object.values(error).flat().forEach(msg => {
+        setNotification({ show: true, message: msg }); 
+      });
+    }
+  }
+};
+
+
 
   const handleLocationChange = (location) => {
     console.log(location);
