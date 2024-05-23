@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Company.css";
 import Map from '../Map/Map';
 import { FaCamera } from "react-icons/fa";
@@ -22,20 +22,29 @@ function Company() {
   const [CompanyDistrict, setCompanyDistrict] = useState("");
   const [CompanyCity, setCompanyCity] = useState("");
   const [CompanyStreet, setCompanyStreet] = useState('');
+  const [Sectors, setSectors] = useState([]);
   const [notification, setNotification] = useState({ show: false, message: "" });
   const [passwordError, setPasswordError] = useState('');
 
-  const [Sectors, setSectors] = useState([
-    { id: '1', name: 'Abarrotes' },
-    { id: '2', name: 'Electrónica' },
-    { id: '3', name: 'Ropa' },
-    { id: '4', name: 'Farmacia' },
-    { id: '5', name: 'Restaurantes' },
-    { id: '6', name: 'Otros' }
-  ]);
-
-  //PONER UN METODO USEREFECT CUANDO SE CONSUMA LA API
-  //EMPLEAR SETSECTORS CUANDO SE CONSUMA LA API
+  useEffect(() => {
+    fetch('http://localhost:8000/api/busine')
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(data => {
+            throw new Error(data.message);
+          });
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.status === 200 && data.data) {
+          setSectors(data.data);
+        }
+      })
+      .catch(error => {
+        setNotification({ show: true, message: "No se pudo conectar con la API" });
+      });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -123,7 +132,7 @@ function Company() {
                     >
                       <option value="">Selecciona un sector</option>
                       {Sectors.map((sector) => (
-                        <option key={sector.id} value={sector.name}>{sector.name}</option>
+                        <option key={sector.id} value={sector.id}>{sector.type}</option>
                       ))}
                     </select>
                   </div>
