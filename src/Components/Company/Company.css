@@ -106,7 +106,7 @@
     padding-left: 10px;
 }
 
-.company-inputGroup input {
+.company-inputGroup input, select {
     flex: 1;
     padding: 10px 25px;
     border: 1.5px solid #ccc;

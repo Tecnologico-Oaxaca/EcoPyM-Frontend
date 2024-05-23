@@ -34,12 +34,18 @@ function Owner() {
             setConfirmOwnerPassword('');
         } 
         else {
-            setPasswordError('');
-            navigate('/registro/miNegocio');
+            //AQUI RECOLECTO LOS VALORES DE LOS INPUTS
+            console.log("Nombre del Proopietario:", Ownername);
+            console.log("Apellido:", OwnerlastName);
+            console.log("Telefono:", Ownerphone);
+            console.log("Email:", Owneremail);
+            console.log("Contraseña:", Ownerpassword);
+
+            navigate('/registro/MisEmpleados');
         }
     };
-    const GoToCompany = () => {
-        navigate('/registro');
+    const GoToEmployee = () => {
+        navigate('/registro/MisEmpleados');
     };
 
 
@@ -158,7 +164,7 @@ function Owner() {
                 </div>  
                 {passwordError && <div className="owner-password-error">{passwordError}</div>}
                 <div className="owner-buttons">
-                    <button type="submit" className="owner-submit-button" id='owner-button-cancelar' onClick={GoToCompany}>
+                    <button type="submit" className="owner-submit-button" id='owner-button-cancelar' onClick={GoToEmployee}>
                         Cancelar <FaChevronCircleRight className="owner-arrow-Icon"/>
                     </button>
                     <button type="submit" className="owner-submit-button" id='owner-button-siguiente' onClick={OwnerhandleClick}>

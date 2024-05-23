@@ -4,40 +4,41 @@
 .owner-container{
     position: relative; 
     font-family: 'Montserrat', sans-serif;
+    height: 100vh;
 }
 
 
 .owner-container-header{
     overflow: visible;
     display: flex;
-    background-color: rgba(131, 249, 249,0.60); /* Ajusta este color al que necesites */
-    border-radius: 0px 0px 10px 10px; /* Bordes redondeados */
-    padding: 5px; /* Espaciado interior */
-    margin: 0px 25%;
+    background-color: rgba(131, 249, 249,0.60);
+    border-radius: 0px 0px 10px 10px;
+    padding: 5px; 
+    margin: 0px 20% 4vh ;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 60%;
     height: 15vh;
-    padding-top: 20px;
+    padding-top: 0px;
     position: relative;
     
 }
 
-
 .owner-container-img{
     background-color: #ffffff; 
     border-radius: 50%; 
-    width: 10vw; /* Mantiene el círculo del mismo tamaño independientemente del contenido */
-    height:10vw;
+    width: 6vw; 
+    height:6vw;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute; /* Permite posicionar libremente el círculo */
-    top: 30%; /* Mueve el círculo hacia arriba para que la mitad esté fuera */
-    left: 50%; /* Centra el círculo horizontalmente */
+    position: absolute;
+    top: 30%; 
+    left: 50%; 
     transform: translateX(-50%);
+    margin-bottom: 10vh;
 }
 
 .owner-button-img{
@@ -48,7 +49,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #333;
+    color: #181818;
 }
 
 .owner-icon-camara{
@@ -58,18 +59,19 @@
 
 
 .owner-Content-form{
-    max-width: 800px;
     border-radius: 10%;
-    padding: 25px;
+    padding: 0px 25px 0px 25px;
     padding-bottom: 10px;
-    background-color:white;
+    background-color:rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 45%;
-    margin: 0 auto;
-    margin-top: 20px;
+    width: auto;
+    height: auto;
+    margin: 8vh auto;
+    margin-top: 0vh;
+    align-self: center;
 }
 
 
@@ -77,7 +79,7 @@
     font-size: 1.2em;
     text-align: center;
     margin-bottom: 0vh;
-    margin-top: 5vh;
+    
 }
 
 .owner-line-title {
@@ -138,7 +140,6 @@
 .owner-password-error {
     color: red;
     font-size: 12px;
-    text-align: center;
     width: 100%;
     margin-top: -10px;
     margin-bottom: 10px;
@@ -176,37 +177,4 @@ button.owner-submit-button-e:hover {
     margin-left: 10px;
     width: 20px;
     height: 20px;
-}
-
-
-
-
-@media (max-width: 768px) {
-    .owner-Content-form {
-        padding: 15px;
-        max-width: 600px; /* Reduce el ancho máximo en pantallas más pequeñas */
-    }
-
-    .owner-inputGroup {
-        flex-direction: column; /* Apila los labels y inputs verticalmente */
-    }
-
-    .owner-input-container {
-        flex-direction: column;
-    }
-
-    input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
-        margin-left: 0; /* Elimina el margen lateral cuando está en formato vertical */
-    }
-}
-
-@media (max-width: 480px) {
-    .owner-Content-form {
-        padding: 10px;
-        max-width: 90%; /* Aprovecha más espacio en pantallas muy pequeñas */
-    }
-
-    .owner-inputGroup {
-        margin-bottom: 10px; /* Asegura suficiente espacio entre los grupos de input en formato vertical */
-    }
 }
