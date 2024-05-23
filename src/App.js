@@ -7,13 +7,14 @@ import { SiHomeassistantcommunitystore } from "react-icons/si";
 import Layout from './Components/LayoutForm/LayoutForm';
 import Owner from './Components/Owner/Owner';
 import Company from './Components/Company/Company';
+import Employee from './Components/Employee/Employee';  
 
 
 function App() {
 
   const registroSections = [
     { id: 1, path: "/registro", title: "Datos de la Empresa", Icon: SiHomeassistantcommunitystore },
-    { id: 2, path: "/registro/miNegocio", title: "Registro Propietario", Icon: RiUser3Fill },
+    { id: 2, path: "/registro/Propietario", title: "Registro Propietario", Icon: RiUser3Fill },
     { id: 3, path: "/registro/MisEmpleados", title: "Registro Empleado", Icon: HiMiniUserGroup },
   ];
 
@@ -24,7 +25,8 @@ function App() {
       <Route path='/' element={<Login />} />
       <Route path='/registro' element={<Layout sections={registroSections} />}>
           <Route index element={<Company />} />
-          <Route path='miNegocio' element={<Owner />} />
+          <Route path='Propietario' element={<Owner />} />
+          <Route path='MisEmpleados' element={<Employee />} />
       </Route>
 
       </Routes>

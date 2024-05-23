@@ -1,0 +1,78 @@
+.employee-container{
+    display: flex; /* Establece el contenedor como un contenedor Flexbox */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
+    max-height: 100vh;
+    max-width: 100%;
+}
+
+.employee-container-code-section2, .employee-container-section1 {
+    flex: 1; /* Permite que ambos elementos tomen espacio igual, ajusta según sea necesario */
+    min-width: 0; /* Ayuda a evitar problemas de desbordamiento */
+}
+  
+.employee-container-section1 {
+    margin: 0px; 
+}
+
+.employee-container-code-section2 {
+    flex: 1; /* La segunda sección tomará dos partes del espacio */
+    min-width: 0; /* Ayuda a evitar problemas de desbordamiento */
+    max-height: 100vh;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.employee-info, .employee-info-days{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    max-height: 100vh;
+}
+.employee-inputGroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+}
+
+.employee-inputGroup label{
+    font-size: 14px;
+    color: #333; /* Color de la etiqueta */
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.employee-inputGroup input {
+    flex: 1;
+    padding: 10px 25px;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    background-color: transparent;
+    margin: 5px;
+    left: 50%;
+}
+.employee-info-days{
+    margin-top: 4vh;
+}
+
+/*Seccion 2*/
+
+.employee-container-code{
+    background-color: #f0efef;
+    border-radius: 10px;
+    width: 50%;
+    height: 25%;
+    padding: 20px;
+    justify-content: center;
+    display: inline-block;
+}
+.employee-container-center{
+    background-color: rgb(255, 255, 255);
+    height: 40%;
+    width: 80%;
+    margin: 10%;
+    border-radius: 15px;
+}

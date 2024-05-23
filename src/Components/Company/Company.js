@@ -24,20 +24,45 @@ function Company() {
   const [CompanyStreet, setCompanyStreet] = useState('');
   const [notification, setNotification] = useState({ show: false, message: "" });
   const [passwordError, setPasswordError] = useState('');
+
+  const [Sectors, setSectors] = useState([
+    { id: '1', name: 'Abarrotes' },
+    { id: '2', name: 'Electrónica' },
+    { id: '3', name: 'Ropa' },
+    { id: '4', name: 'Farmacia' },
+    { id: '5', name: 'Restaurantes' },
+    { id: '6', name: 'Otros' }
+  ]);
+
+  //PONER UN METODO USEREFECT CUANDO SE CONSUMA LA API
+  //EMPLEAR SETSECTORS CUANDO SE CONSUMA LA API
+
   const navigate = useNavigate();
 
   const GoToOwner = () => {
     navigate('/');
   };
 
-  const OwnerhandleClick = (e) => {
+  const CompanyhandleClick = (e) => {
     e.preventDefault();
 
     if (!CompanyName || !CompanySector || !CompanyState || !CompanyDistrict || !CompanyCity || !CompanyStreet) {
       setNotification({ show: true, message: "Completa tus datos, por favor." });
     } else {
+
+      //AQUI RECOLECTO LOS VALORES DE LOS INPUTS
+      console.log("Nombre de la empresa:", CompanyName);
+      console.log("Sector de la empresa:", CompanySector);
+      console.log("Hora de apertura:", CompanyOpenTime);
+      console.log("Hora de cierre:", CompanyClose);
+      console.log("Estado:", CompanyState);
+      console.log("Municipio:", CompanyDistrict);
+      console.log("Colonia:", CompanyCity);
+      console.log("Calle:", CompanyStreet);
+
+
       setPasswordError('');
-      navigate('/registro/miNegocio');
+      navigate('/registro/Propietario');
     }
   };
 
@@ -90,14 +115,17 @@ function Company() {
                   <label htmlFor="companySector">Sector:</label>
                   <div className="company-input-container">
                     <CiShoppingBasket className="company-input-Icon" />
-                    <input
+                    <select
                       value={CompanySector}
-                      type="text"
                       id="companySector"
-                      placeholder="Abarrotes"
                       onChange={(e) => setCompanySector(e.target.value)}
                       required
-                    />
+                    >
+                      <option value="">Selecciona un sector</option>
+                      {Sectors.map((sector) => (
+                        <option key={sector.id} value={sector.name}>{sector.name}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
               </div>
@@ -190,7 +218,7 @@ function Company() {
                 <button type="submit" className="owner-submit-button" id='owner-button-cancelar' onClick={GoToOwner}>
                   Cancelar <FaChevronCircleRight className="owner-arrow-Icon" />
                 </button>
-                <button type="submit" className="owner-submit-button" id='owner-button-siguiente' onClick={OwnerhandleClick}>
+                <button type="submit" className="owner-submit-button" id='owner-button-siguiente' onClick={CompanyhandleClick}>
                   Siguiente <FaChevronCircleRight className="owner-arrow-Icon" />
                 </button>
               </div>
