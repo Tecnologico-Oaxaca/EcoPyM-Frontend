@@ -27,7 +27,6 @@ function Company() {
   const [CompanyStreet, setCompanyStreet] = useState('');
   const [Sectors, setSectors] = useState([]);
   const [notification, setNotification] = useState({ show: false, message: "" });
-  const [passwordError, setPasswordError] = useState('');
   
 
   useEffect(() => {
@@ -64,9 +63,8 @@ function Company() {
       district: CompanyDistrict,
       street: CompanyStreet,
     };
-    await createRegisterBusines(registerbusinesdata);
-
-    navigate('/registro/Propietario');
+    const response = await createRegisterBusines(registerbusinesdata);
+    navigate('/registro/Propietario',{ state: { branchId: response.data.branch_id }});
   } catch (error) {
     if (error instanceof Error) {
       setNotification({ show: true, message: error.message });
@@ -227,7 +225,6 @@ function Company() {
                   </div>
                 </div>
               </div>
-              {passwordError && <div className="owner-password-error">{passwordError}</div>}
               <div className="owner-buttons">
                 <button type="submit" className="owner-submit-button" id='owner-button-cancelar' onClick={GoToOwner}>
                   Cancelar <FaChevronCircleRight className="owner-arrow-Icon" />

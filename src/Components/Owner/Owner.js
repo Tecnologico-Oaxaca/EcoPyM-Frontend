@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { createUsers } from '../../services/apiUsersService';
+
 import "./Owner.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FaCamera } from "react-icons/fa";
 import { BsEnvelope } from "react-icons/bs";
 import { MdLockOutline } from "react-icons/md";
@@ -11,6 +13,9 @@ import Notification from '../Notification/Notification';
 
 function Owner() {
 
+    const location = useLocation();
+    const branchId = location.state?.branchId;
+
     const [Ownername, setOwnerName] = useState("");
     const [OwnerlastName, setOwnerLastName] = useState("");
     const [Owneremail, setOwnerEmail] = useState("");
@@ -18,30 +23,44 @@ function Owner() {
     const [Ownerphone, setOwnersetPhone] = useState("");
     const [ConfirmOwnerpassword, setConfirmOwnerPassword] = useState('');
     const [notification, setNotification] = useState({ show: false, message: "" });
-    const [passwordError, setPasswordError] = useState('');
+    const [passwordError] = useState('');
     const navigate = useNavigate();
 
 
-    const OwnerhandleClick = (e) => {
+    const OwnerhandleClick = async (e) => {
         e.preventDefault();
 
         if (!Ownername || !OwnerlastName || !Ownerphone || !Owneremail || !Ownerpassword ||!ConfirmOwnerpassword) {
             setNotification({ show: true, message: "Completa tus datos, por favor." });
         } 
         else if (Ownerpassword !== ConfirmOwnerpassword) {
-            setPasswordError('Tus contraseñas son diferentes');
+            setNotification({ show: true, message: "Las contraseñas no coinciden" });
             setOwnerPassword('');
             setConfirmOwnerPassword('');
         } 
         else {
-            //AQUI RECOLECTO LOS VALORES DE LOS INPUTS
-            console.log("Nombre del Proopietario:", Ownername);
-            console.log("Apellido:", OwnerlastName);
-            console.log("Telefono:", Ownerphone);
-            console.log("Email:", Owneremail);
-            console.log("Contraseña:", Ownerpassword);
 
-            navigate('/registro/MisEmpleados');
+            try {
+                const userdata = {
+                  name: Ownername,
+                  last_name: OwnerlastName,
+                  phone: Ownerphone,
+                  email: Owneremail,
+                  password: Ownerpassword,
+                  branch_id: branchId,
+                  role_id: 1
+                };
+                await createUsers(userdata);
+                navigate('/registro/MisEmpleados');
+              } catch (error) {
+                if (error instanceof Error) {
+                  setNotification({ show: true, message: error.message });
+                } else {
+                  Object.values(error).flat().forEach(msg => {
+                    setNotification({ show: true, message: msg }); 
+                  });
+                }
+              }
         }
     };
     const GoToEmployee = () => {
@@ -129,6 +148,7 @@ function Owner() {
                         placeholder="usuario@dominio.com"
                         onChange={(e) => setOwnerEmail(e.target.value)}
                         required
+                        autoComplete="email"
                         />
                     </div>
                 </div>
@@ -143,6 +163,7 @@ function Owner() {
                             id="ownerPassword"
                             placeholder="********"
                             onChange={(e) => setOwnerPassword(e.target.value)}
+                            autoComplete="new-password"
                             required
                             />
                         </div>
@@ -157,6 +178,7 @@ function Owner() {
                                 id="confirmOwnerPassword"
                                 placeholder="********"
                                 onChange={(e) => setConfirmOwnerPassword(e.target.value)}
+                                autoComplete="new-password"
                                 required
                             />
                         </div>
