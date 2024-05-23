@@ -161,6 +161,8 @@ button.owner-submit-button {
     color: #000000;
     font-family: 'Montserrat', sans-serif;
     margin: 30px;
+    transition: transform 0.3s ease;
+    transform: scale(1);
 }
 
 #owner-button-cancelar{

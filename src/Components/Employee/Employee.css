@@ -5,23 +5,40 @@
     max-width: 100%;
 }
 
+.employee-container-header{
+    overflow: visible;
+    display: flex;
+    background-color: rgba(131, 249, 249,0.60);
+    border-radius: 0px 0px 10px 10px;
+    padding: 5px; 
+    margin: 0px 0% 4vh ;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10vh;
+    padding-top: 0px;
+    position: relative;
+}
+
 .employee-container-code-section2, .employee-container-section1 {
     flex: 1; /* Permite que ambos elementos tomen espacio igual, ajusta según sea necesario */
     min-width: 0; /* Ayuda a evitar problemas de desbordamiento */
 }
   
 .employee-container-section1 {
-    margin: 0px; 
+    margin: 0% 10%; 
 }
 
 .employee-container-code-section2 {
-    flex: 1; /* La segunda sección tomará dos partes del espacio */
+    flex: 0.5; /* La segunda sección tomará dos partes del espacio */
     min-width: 0; /* Ayuda a evitar problemas de desbordamiento */
     max-height: 100vh;
     align-items: center;
     align-content: center;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .employee-info, .employee-info-days{
@@ -51,11 +68,47 @@
     border-radius: 10px;
     outline: none;
     background-color: transparent;
-    margin: 5px;
+    margin: 10px;
     left: 50%;
 }
+
+.employee-custom-select {
+    appearance: none;
+    border: 1px solid #ccc;
+}
+
+  
+
 .employee-info-days{
     margin-top: 4vh;
+}
+
+.employee-submit-button{
+    justify-content: center;
+    border: 0px solid;
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    margin: 30px auto;
+}
+
+#employee-button-generar{
+    background-color: rgb(104, 243, 243);
+}
+
+@keyframes pulse {
+    0%, 100% {
+      transform: scale(1);  /* Estado normal, chiquito */
+    }
+    50% {
+      transform: scale(1.1); /* Estado agrandado */
+    }
+  }
+
+.employee-submit-button-large{
+    animation: pulse 2s infinite;
 }
 
 /*Seccion 2*/
@@ -63,11 +116,12 @@
 .employee-container-code{
     background-color: #f0efef;
     border-radius: 10px;
-    width: 50%;
-    height: 25%;
+    width: 60%;
+    height: 30%;
     padding: 20px;
     justify-content: center;
-    display: inline-block;
+    display: inline;
+    margin: 0% 40% 0% -5%;
 }
 .employee-container-center{
     background-color: rgb(255, 255, 255);
@@ -75,4 +129,26 @@
     width: 80%;
     margin: 10%;
     border-radius: 15px;
+}
+.employee-generated-code{
+    text-align: center;
+    padding: 25%;
+}
+.employee-icon-sharing{
+    display: flex;             
+    justify-content: center;   /* Centra los ítems verticalmente */
+    gap: 10px; 
+}
+
+.employee-icons {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+  
+.employee-icon-whatsapp {
+    color: #25D366;
+}
+
+.employee-icon-whatsapp:hover {
+    color: #1ebea5; 
 }

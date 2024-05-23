@@ -129,7 +129,7 @@ function Company() {
                   <label htmlFor="companySector">Sector:</label>
                   <div className="company-input-container">
                     <CiShoppingBasket className="company-input-Icon" />
-                    <select
+                    <select className='employee-custom-select'
                       value={CompanySector}
                       id="companySector"
                       onChange={(e) => setCompanySector(e.target.value)}

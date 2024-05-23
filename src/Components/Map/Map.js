@@ -3,6 +3,7 @@ import './Map.css';
 
 function loadGoogleMapsScript(callback) {
   if (window.google) {
+    console.log("Google Maps esta listo.");
     callback();
     return;
   }
@@ -141,7 +142,7 @@ function Map({ onLocationChange }) {
 
   return (
     <div className="map-wrapper">
-        {permissionDenied && <div className="map-overlay"></div>}
+        {permissionDenied && <div className="map-overlay">Permission Denied. Please enable location services</div>}
         <div id="map" className="map-Container">
       </div>
     </div>
