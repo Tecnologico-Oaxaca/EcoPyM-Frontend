@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { showRoles } from '../../services/apiRolesService';
+import { showWorkShift } from '../../services/apiWorkShiftService';
+import { createRegisterEmployes } from '../../services/apiRegisterEmployee';
+
 import "./Employee.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FaCamera } from "react-icons/fa";
 import { TfiMoney } from "react-icons/tfi";
 import { FaChevronCircleRight } from "react-icons/fa";
@@ -16,6 +20,8 @@ import ModalCheck from '../ModalCheck/ModalCheck';
 
 function Employee() {
 
+    const location = useLocation();
+    const branchId = location.state?.branchId;
 
     const [Employeename, setEmployeeName] = useState("");
     const [EmployeeRol, setEmployeeRol] = useState("");
@@ -24,31 +30,42 @@ function Employee() {
     const [selectedDays, setSelectedDays] = useState([]);
     const [codeGenerated, setCodeGenerated] = useState(false);
     const [employeeCode, setEmployeeCode] = useState("");
+    const [Rol, setRol] = useState([]);
+    const [Shift, setShift] = useState([]);
     const [notification, setNotification] = useState({ show: false, message: "" });
     const [showModal, setShowModal] = useState(false);
 
     const navigate = useNavigate();
     //
-    const [Rol, setRol] = useState([
-        { id: '1', name: 'Cajero' },
-        { id: '2', name: 'Almacen' }
-    ]);
+    useEffect(() => {
+        showRoles()
+          .then(sectorsData => {
+            setRol(sectorsData);
+          })
+          .catch(error => {
+            setNotification({ show: true, message: "No se pudo conectar con la API" });
+          });
+      }, []);
 
-    const [Shift, setShift] = useState([
-        { id: '1', name: 'MATUTINO' },
-        { id: '2', name: 'VESPERTINO' }
-    ]);
+      useEffect(() => {
+        showWorkShift()
+          .then(workShiftData => {
+            setShift(workShiftData);
+          })
+          .catch(error => {
+            setNotification({ show: true, message: "No se pudo conectar con la API" });
+          });
+      }, []);
 
-
-    //PONER UN METODO USEREFECT CUANDO SE CONSUMA LA API
-    //EMPLEAR SETSECTORS CUANDO SE CONSUMA LA API
-
-
-    function handleDaySelection(daysIds) {
-        setSelectedDays(daysIds);
+      function handleDaySelection(daysIds) {
+        const daysWithTrue = daysIds.map(dayId => ({
+            day_id: dayId,       
+            is_work_day: true
+        }));
+        setSelectedDays(daysWithTrue);
     }
 
-    const EmployeehandleClick = (e) => {
+    const EmployeehandleClick = async (e) => {
         e.preventDefault();
 
         if (!Employeename || !EmployeeRol || !EmployeeSalary || !EmployeeShift) {
@@ -56,11 +73,32 @@ function Employee() {
         }
         else{
             const prefix = "EMP";
-            const randomNumbers = Math.floor(Math.random() * 9000) + 1000;
+            const randomNumbers = Math.floor(Math.random() * 90000) + 1000;
             const code = prefix + randomNumbers;
 
-            setCodeGenerated(true);
-            setEmployeeCode(code);
+            try {
+                const employesData = {
+                  name: Employeename,
+                  role_id: EmployeeRol,
+                  salary: EmployeeSalary,
+                  work_shift_id: EmployeeShift,
+                  password: code,
+                  branch_id: branchId,
+                  days: selectedDays
+                };
+                await createRegisterEmployes(employesData);
+                setEmployeeCode(code); 
+                setCodeGenerated(true);
+              } catch (error) {
+                if (error instanceof Error) {
+                  setNotification({ show: true, message: error.message });
+                } else {
+                  Object.values(error).flat().forEach(msg => {
+                    setNotification({ show: true, message: msg }); 
+                  });
+                }
+              }
+
             //AQUI RECOLECTO LOS VALORES DE LOS INPUTS
             console.log("Nombre del Empleado:", Employeename);
             console.log("Rol del propietario:", EmployeeRol);
@@ -165,7 +203,7 @@ function Employee() {
                                 >
                                     <option value="">SELECCIONE UN ROL</option>
                                     {Rol.map((Rol) => (
-                                        <option key={Rol.id} value={Rol.name}>{Rol.name}</option>
+                                        <option key={Rol.id} value={Rol.id}>{Rol.name}</option>
                                     ))}
                                 </select>
                             </div>
@@ -197,7 +235,7 @@ function Employee() {
                                 >
                                     <option value="">SELECCIONE UN TURNO</option>
                                     {Shift.map((Shift) => (
-                                        <option key={Shift.id} value={Shift.name}>{Shift.name}</option>
+                                        <option key={Shift.id} value={Shift.id}>{Shift.name}</option>
                                     ))}
                                 </select>
                             </div>
