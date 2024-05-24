@@ -1,3 +1,24 @@
+commit 8d6733885406563ec958751467ed156b5e0b9601
+Merge: 1e8fede 6011f4d
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Thu May 23 18:46:53 2024 -0600
+
+    Merge pull request #14 from RosaMartinez23/menu
+    
+    Creación del menú principal
+
+commit 6011f4d8489910dc267a3f3751d64174a818fc53
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Thu May 23 18:24:44 2024 -0600
+
+    Creación del menú principal
+
+commit 1e8fede6bd5ea687a8b6a5e564d2c188b95b94d6
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Thu May 23 18:14:04 2024 -0600
+
+    Actualizando log commits
+
 commit 4e9eacb8100fcb51dffa0b2a717cd3301354201e
 Merge: 6411ae6 0c79d05
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
