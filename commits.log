@@ -1,3 +1,24 @@
+commit c69ec0a87a7eabcc96a463ec8967efaa73527ba3
+Merge: 5aad0f2 1b1b8c2
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Thu May 23 19:43:09 2024 -0600
+
+    Merge pull request #15 from SoyFroylanMtz/rama
+    
+    BrnachId en sessionStorange
+
+commit 1b1b8c28f76d319bf514bf9aa5dd3577555316bb
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Thu May 23 19:41:06 2024 -0600
+
+    BrnachId en sessionStorange
+
+commit 5aad0f2dc6af51987fc8b834268b45a96e94e067
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Thu May 23 18:48:39 2024 -0600
+
+    Actualizando log commits
+
 commit 8d6733885406563ec958751467ed156b5e0b9601
 Merge: 1e8fede 6011f4d
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
