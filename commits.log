@@ -1,3 +1,24 @@
+commit 6b69d3c61e8277094a687e29f209b20ff09aeaa8
+Merge: 9855238 e305cab
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Fri May 24 09:15:36 2024 -0600
+
+    Merge pull request #16 from RosaMartinez23/stock
+    
+    Creación de la interfaz Stock
+
+commit e305cab193f44a5647da334ffd3b3724acfe1725
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Fri May 24 09:09:48 2024 -0600
+
+    Creacion de la interfaz Stock
+
+commit 9855238e809b3a6f4c56a982e4fbda5f347e3a85
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Thu May 23 19:44:25 2024 -0600
+
+    Actualizando log commits
+
 commit c69ec0a87a7eabcc96a463ec8967efaa73527ba3
 Merge: 5aad0f2 1b1b8c2
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
