@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createUsers } from '../../services/apiUsersService';
 
 import "./Owner.css";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FaCamera } from "react-icons/fa";
 import { BsEnvelope } from "react-icons/bs";
 import { MdLockOutline } from "react-icons/md";
@@ -12,9 +12,6 @@ import { BsTelephone } from "react-icons/bs";
 import Notification from '../Notification/Notification';
 
 function Owner() {
-
-    const location = useLocation();
-    const branchId = location.state?.branchId;
 
     const [Ownername, setOwnerName] = useState("");
     const [OwnerlastName, setOwnerLastName] = useState("");
@@ -47,7 +44,7 @@ function Owner() {
                   phone: Ownerphone,
                   email: Owneremail,
                   password: Ownerpassword,
-                  branch_id: branchId,
+                  branch_id: sessionStorage.getItem('branchId'),
                   role_id: 1
                 };
                 await createUsers(userdata);

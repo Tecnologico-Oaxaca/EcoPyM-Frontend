@@ -4,7 +4,7 @@ import { showWorkShift } from '../../services/apiWorkShiftService';
 import { createRegisterEmployes } from '../../services/apiRegisterEmployee';
 
 import "./Employee.css";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FaCamera } from "react-icons/fa";
 import { TfiMoney } from "react-icons/tfi";
 import { FaChevronCircleRight } from "react-icons/fa";
@@ -19,9 +19,6 @@ import ModalCheck from '../ModalCheck/ModalCheck';
 
 
 function Employee() {
-
-    const location = useLocation();
-    const branchId = location.state?.branchId;
 
     const [Employeename, setEmployeeName] = useState("");
     const [EmployeeRol, setEmployeeRol] = useState("");
@@ -83,12 +80,13 @@ function Employee() {
                   salary: EmployeeSalary,
                   work_shift_id: EmployeeShift,
                   password: code,
-                  branch_id: branchId,
+                  branch_id: sessionStorage.getItem('branchId'),
                   days: selectedDays
                 };
                 await createRegisterEmployes(employesData);
                 setEmployeeCode(code); 
                 setCodeGenerated(true);
+                sessionStorage.removeItem('branchId');
               } catch (error) {
                 if (error instanceof Error) {
                   setNotification({ show: true, message: error.message });
