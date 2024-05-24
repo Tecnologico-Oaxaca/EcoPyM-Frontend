@@ -64,7 +64,8 @@ function Company() {
       street: CompanyStreet,
     };
     const response = await createRegisterBusines(registerbusinesdata);
-    navigate('/registro/Propietario',{ state: { branchId: response.data.branch_id }});
+    sessionStorage.setItem('branchId', response.data.branch_id.toString());
+    navigate('/registro/Propietario');
   } catch (error) {
     if (error instanceof Error) {
       setNotification({ show: true, message: error.message });
