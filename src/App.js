@@ -10,7 +10,7 @@ import Owner from './Components/Owner/Owner';
 import Company from './Components/Company/Company';
 import Employee from './Components/Employee/Employee'; 
 import Dashboard from './Components/Dashboard/Dashboard'; 
-
+import Stock from './Components/Stock/Stock';
 
 function App() {
 
@@ -22,10 +22,10 @@ function App() {
 
   const MenuSections1 = [
     { id: 1, path: "/registro/Menu", title: "Inicio", Icon: RiUser3Fill },
-    { id: 2, path: "/registro/MisVentas", title: "Ventas", Icon: SiHomeassistantcommunitystore },
-    { id: 3, path: "/registro/MisUsuarios", title: "Usuarios", Icon: HiMiniUserGroup },
-    { id: 4, path: "/registro/MisProductos", title: "Productos", Icon: HiMiniUserGroup },
-    { id: 5, path: "/registro/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup }
+    { id: 2, path: "/registro/Menu/MisVentas", title: "Ventas", Icon: SiHomeassistantcommunitystore },
+    { id: 3, path: "/registro/Menu/MisUsuarios", title: "Usuarios", Icon: HiMiniUserGroup },
+    { id: 4, path: "/registro/Menu/MisProductos", title: "Productos", Icon: HiMiniUserGroup },
+    { id: 5, path: "/registro/Menu/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup }
   ];
 
   const MenuSections2 = [
@@ -46,6 +46,7 @@ function App() {
       </Route>
       <Route path='/registro/Menu' element={<LayoutHome sections1={MenuSections1} sections2={MenuSections2} />}>
           <Route index element={<Dashboard />} />
+          <Route path='MisVentas' element={<Stock />} />
           
       </Route>
 
