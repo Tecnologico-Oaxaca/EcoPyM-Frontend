@@ -92,6 +92,7 @@
     color: #000000;
     font-family: 'Montserrat', sans-serif;
     margin: 30px auto;
+    cursor: pointer;
 }
 
 #employee-button-generar{
@@ -116,7 +117,7 @@
 .employee-container-code{
     background-color: #f0efef;
     border-radius: 10px;
-    width: 60%;
+    width: 80%;
     height: 30%;
     padding: 20px;
     justify-content: center;
@@ -143,6 +144,7 @@
 .employee-icons {
     font-size: 1.5em;
     cursor: pointer;
+    padding-left: 10%;
 }
   
 .employee-icon-whatsapp {

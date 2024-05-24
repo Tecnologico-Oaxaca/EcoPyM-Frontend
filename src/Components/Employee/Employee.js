@@ -102,13 +102,12 @@ function Employee() {
         setSelectedDays([]);     
         setCodeGenerated(false);  
         setEmployeeCode("");
-        
         setShowModal(false);
     };
     
     const handleNo = () => {
         setShowModal(false);
-        navigate('');
+        navigate('/registro/Menu');
     };
 
 
@@ -235,7 +234,7 @@ function Employee() {
                 <div className='employee-icon-sharing'>
                     <FaRegCopy className='employee-icons' onClick={handleCopyCode}/>
                     <FaWhatsapp className='employee-icons employee-icon-whatsapp' />
-                    <img src={gmailIcon} alt='Icono de Gmail' style={{ width: '1.5em', height: '1.5em', cursor:'pointer'}}></img>
+                    <img src={gmailIcon} alt='Icono de Gmail' style={{ width: '1.5em', height: '1.5em', cursor:'pointer', padding:'0% 10%'}}></img>
                 </div>
             </div>
         </div> 
