@@ -8,7 +8,7 @@ function ModalCheck({ onYes, onNo }) {
     <div className='ModalCheck-overlay'>
         <div className='ModalCheck-container'>
             <div className='ModalCheck-container-form'>
-                <p employee-info>¿Desea registrar otro empleado?</p>  
+                <p className='employee-info'>¿Desea registrar otro empleado?</p>  
                 <div className="ModalCheck-buttons">
                     <button type="submit" className="ModalCheck-submit-button" id='ModalCheck-button-Si' onClick={onYes} >
                         <FaCheck className="ModalCheck-arrow-Icon"/> Aceptar
