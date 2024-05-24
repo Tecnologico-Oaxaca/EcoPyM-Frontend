@@ -1,3 +1,30 @@
+commit 4e9eacb8100fcb51dffa0b2a717cd3301354201e
+Merge: 6411ae6 0c79d05
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Thu May 23 18:12:41 2024 -0600
+
+    Merge pull request #13 from SoyFroylanMtz/rama-nueva
+    
+    Rama nueva
+
+commit 0c79d0597d7d0b142886c4ee8d6fa65eda7c2346
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Thu May 23 18:10:07 2024 -0600
+
+    Crear Y consumir api RegisterEmploye
+
+commit 6411ae6b367f4edd29754223a7033b46e463cf7f
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Thu May 23 09:42:47 2024 -0600
+
+    Actualizando log commits
+
+commit 0313fafbc975dc2421c1a91586c653a981ccfc3a
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Thu May 23 09:42:01 2024 -0600
+
+    Actualizando log commits
+
 commit e03c850cf1223f8f1d4050d7d264be7299bcffd4
 Merge: b6ab805 f8da6c3
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
