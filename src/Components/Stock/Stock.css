@@ -7,16 +7,17 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     justify-content: space-between;
-    background-color: #f3f9fc;
+    background-color: #e7f3f9;
     width: auto;
 }
 
 .stock-container {
-    margin-left: 4%; 
-    width: 60%;
+    width: 75%;
     overflow-y: auto;
     position: relative;
-    padding-bottom: 50px;
+    padding: 0px 10px 50px 5px;
+    align-items: center;
+    justify-content: center;
 }
 
 .stock-icono-classname-lines{
@@ -121,7 +122,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
 }
 
 .stock-category-img img {
@@ -308,24 +308,31 @@
 
 /*Productos*/
 
-.stock-tbody-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+.stock-container-card-products{
+    overflow: hidden; /* Asegura que todo dentro del contenedor no se desborde */
+    position: relative;
+}
+
+.stock-tbody-container{    
     align-items: center;
     justify-content: center;
     align-content: center;
     margin: auto;
     outline: none;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  overflow-x: hidden;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    overflow-x: hidden;
+    overflow: hidden; /* Asegura que todo dentro del contenedor no se desborde */
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
+
 
 .stock-container-products{
     margin: 15px 5px 5px ;
-    padding: 5px;
     border: 1px solid #ffffff;
     border-radius: 15px;
     display: inline-block;
@@ -337,6 +344,7 @@
     padding: 0 0 0 15px;
     background-color: #ffffff;
     overflow: hidden;
+    position: relative;
 }
 
 .stock-header{
@@ -519,7 +527,9 @@
 .stock-container-top{
     justify-content: center;
     align-items: center;
-    padding: 0% 3%;
+    padding: 0% 2% 0% 1%;
+    overflow: hidden;
+    width: 35%;
 }
 .stock-container-user{
     margin: 5% 10%;
@@ -539,6 +549,8 @@
     width: 100%;
     padding: 5px;
     background-color: #ffffff;
+    overflow: hidden; /* Asegura que todo dentro del contenedor no se desborde */
+    position: relative;
 }
 .stock-top3{
     text-align: center;
