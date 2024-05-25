@@ -1,3 +1,24 @@
+commit cdb5c457e1f34a138e64319b57da059882d0d388
+Merge: 2433ab4 156f4c2
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Sat May 25 15:59:54 2024 -0600
+
+    Merge pull request #18 from RosaMartinez23/Code
+    
+    Creación de Interfaz Register Code
+
+commit 156f4c2506c70c0bb5fbccf589ca6ec810c46e10
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Sat May 25 15:47:29 2024 -0600
+
+    Creacion de Interfaz Register Code
+
+commit 2433ab43b417facddc8a3b09fa7a8732399412ce
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Sat May 25 13:51:58 2024 -0600
+
+    Actualizando log commits
+
 commit 33b785d5aa61aae40fe18a04bbba37a47c23bbb4
 Merge: a822c2e 8505cb0
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
