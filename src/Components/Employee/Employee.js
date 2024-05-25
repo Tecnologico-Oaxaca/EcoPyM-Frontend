@@ -143,7 +143,7 @@ function Employee() {
     
     const handleNo = () => {
         setShowModal(false);
-        navigate('/registro/Menu');
+        navigate('/Menu');
     };
 
 

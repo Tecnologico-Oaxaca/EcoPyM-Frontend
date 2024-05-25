@@ -14,6 +14,9 @@ function Login() {
     const GoToRegistration = () => {
         navigate('/registro');
     };
+    const GoToCode = () => {
+      navigate('/Code');
+  };
 
   return (
     <div className="login-container">
@@ -58,7 +61,7 @@ function Login() {
             <button className="login-ingresar-button" type="submit" >Ingresar</button>
             <div className="login-buttons-container">
                 <button className="login-registro-button" type="button" onClick={GoToRegistration}>Registrarme</button>
-                <button className="login-codigo-button" type="button" >Tengo un código</button>
+                <button className="login-codigo-button" type="button" onClick={GoToCode}>Tengo un código</button>
             </div>
             </form>
         </div>
