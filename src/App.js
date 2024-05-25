@@ -8,7 +8,8 @@ import Layout from './Components/LayoutForm/LayoutForm';
 import LayoutHome from './Components/LayoutFormHome/LayoutFormHome';
 import Owner from './Components/Owner/Owner';
 import Company from './Components/Company/Company';
-import Employee from './Components/Employee/Employee'; 
+import Employee from './Components/Employee/Employee';
+import RegisterCode from './Components/Employee/RegisterCode'; 
 import Dashboard from './Components/Dashboard/Dashboard'; 
 import Stock from './Components/Stock/Stock';
 
@@ -20,12 +21,16 @@ function App() {
     { id: 3, path: "/registro/MisEmpleados", title: "Registro Empleado", Icon: HiMiniUserGroup },
   ];
 
+  const registroCode = [
+    { id: 1, path: "/Code", title: "Registro de mis Datos", Icon: SiHomeassistantcommunitystore }
+  ];
+
   const MenuSections1 = [
-    { id: 1, path: "/registro/Menu", title: "Inicio", Icon: RiUser3Fill },
-    { id: 2, path: "/registro/Menu/MisVentas", title: "Ventas", Icon: SiHomeassistantcommunitystore },
-    { id: 3, path: "/registro/Menu/MisUsuarios", title: "Usuarios", Icon: HiMiniUserGroup },
-    { id: 4, path: "/registro/Menu/MisProductos", title: "Productos", Icon: HiMiniUserGroup },
-    { id: 5, path: "/registro/Menu/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup }
+    { id: 1, path: "/Menu", title: "Inicio", Icon: RiUser3Fill },
+    { id: 2, path: "/Menu/MisVentas", title: "Ventas", Icon: SiHomeassistantcommunitystore },
+    { id: 3, path: "/Menu/MisUsuarios", title: "Usuarios", Icon: HiMiniUserGroup },
+    { id: 4, path: "Menu/MisProductos", title: "Productos", Icon: HiMiniUserGroup },
+    { id: 5, path: "/Menu/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup }
   ];
 
   const MenuSections2 = [
@@ -44,10 +49,12 @@ function App() {
           <Route path='Propietario' element={<Owner />} />
           <Route path='MisEmpleados' element={<Employee />} />
       </Route>
-      <Route path='/registro/Menu' element={<LayoutHome sections1={MenuSections1} sections2={MenuSections2} />}>
+      <Route path='/Code' element={<Layout sections={registroCode} />}>
+          <Route index element={<RegisterCode />} />
+      </Route>
+      <Route path='/Menu' element={<LayoutHome sections1={MenuSections1} sections2={MenuSections2} />}>
           <Route index element={<Dashboard />} />
           <Route path='MisVentas' element={<Stock />} />
-          
       </Route>
 
       </Routes>
