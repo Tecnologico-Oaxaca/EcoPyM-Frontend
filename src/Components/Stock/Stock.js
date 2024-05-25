@@ -47,14 +47,18 @@ function POS() {
     const topSales = [
         { id: 1, imageSrc: "ArrozVerde", altText: 'Producto numero 1', name: 'Arroz Verde 900g', index: '18.09%' },
         { id: 2, imageSrc: "bimbo", altText: 'Producto numero 2', name: 'Pan Bimbo 377g', index: '15.59%' },
-        { id: 3, imageSrc: "tomato", altText: 'Producto numero 3', name: 'Tomate 1Kg', index: '10.90%' }
+        { id: 3, imageSrc: "tomato", altText: 'Producto numero 3', name: 'Tomate 1Kg', index: '10.90%' },
+        { id: 4, imageSrc: "IceCream", altText: 'Producto numero 2', name: 'Helado sabor Chocolate', index: '1.75%' },
+        { id: 5, imageSrc: "connflakes", altText: 'Producto numero 3', name: 'Cereal CornFlakes 900g', index: '1.90%' }
     ];
 
     //PONER API QUE CONSULTA MI TOP 3 DE PRODUCTOS MENOS VENDIDOS
     const lowSales = [
         { id: 1, imageSrc: "Johnsons", altText: 'Producto numero 1', name: 'Jabón de Baño Johnsons', index: '0.42%' },
         { id: 2, imageSrc: "IceCream", altText: 'Producto numero 2', name: 'Helado sabor Chocolate', index: '1.75%' },
-        { id: 3, imageSrc: "connflakes", altText: 'Producto numero 3', name: 'Cereal CornFlakes 900g', index: '1.90%' }
+        { id: 3, imageSrc: "connflakes", altText: 'Producto numero 3', name: 'Cereal CornFlakes 900g', index: '1.90%' },
+        { id: 4, imageSrc: "IceCream", altText: 'Producto numero 2', name: 'Helado sabor Chocolate', index: '1.75%' },
+        { id: 5, imageSrc: "connflakes", altText: 'Producto numero 3', name: 'Cereal CornFlakes 900g', index: '1.90%' }
     ];
 
 
@@ -120,40 +124,42 @@ function POS() {
                         <button type="submit" className="stock-search-button"><FaSearch /></button>
                     </form>
                 </div>
-
-                <div className="stock-tbody-container">
-                    {currentProducts.map((product, index) => (
-                        <div className="stock-container-products" key={product.id}>
-                            <div className="stock-tbody-header">
-                                <p className="stock-header">{product.discount}</p>
-                                <IoCameraOutline className="stock-icono-classname-camera" />
-                            </div>
-                            <div className="stock-info-container">
-                                <img className="stock-products-img" src={product.imageSrc} alt={product.altText} />
-                                <div
-                                    className="stock-icono-classname-plus"
-                                    onMouseEnter={() => setHoverIndex(index)}
-                                    onMouseLeave={() => setHoverIndex(null)}
-                                >
-                                    {hoverIndex === index ? (
-                                        <>
-                                            <FaMinus className="stock-icon-minus" />
-                                            <span className="stock-number">{product.count}</span>
+                <div className='stock-container-card-products'>
+                    <div className="stock-tbody-container">
+                        {currentProducts.map((product, index) => (
+                            <div className="stock-container-products" key={product.id}>
+                                <div className="stock-tbody-header">
+                                    <p className="stock-header">{product.discount}</p>
+                                    <IoCameraOutline className="stock-icono-classname-camera" />
+                                </div>
+                                <div className="stock-info-container">
+                                    <img className="stock-products-img" src={product.imageSrc} alt={product.altText} />
+                                    <div
+                                        className="stock-icono-classname-plus"
+                                        onMouseEnter={() => setHoverIndex(index)}
+                                        onMouseLeave={() => setHoverIndex(null)}
+                                    >
+                                        {hoverIndex === index ? (
+                                            <>
+                                                <FaMinus className="stock-icon-minus" />
+                                                <span className="stock-number">{product.count}</span>
+                                                <FaPlus className="stock-icon-plus" />
+                                            </>
+                                        ) : (
                                             <FaPlus className="stock-icon-plus" />
-                                        </>
-                                    ) : (
-                                        <FaPlus className="stock-icon-plus" />
-                                    )}
-                                </div>
-                                <div className="stock-inferior-container">
-                                    <p className="stock-Cost">{product.price}</p>
-                                    <p className="stock-proveedor">{product.supplier}</p>
-                                    <p className="stock-name-product">{product.productName}</p>
+                                        )}
+                                    </div>
+                                    <div className="stock-inferior-container">
+                                        <p className="stock-Cost">{product.price}</p>
+                                        <p className="stock-proveedor">{product.supplier}</p>
+                                        <p className="stock-name-product">{product.productName}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
+
 
                 <div className="stock-pagination-container">
                     <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1} className="stock-pagination-nav-button">
