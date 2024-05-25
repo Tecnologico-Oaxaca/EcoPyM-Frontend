@@ -1,3 +1,24 @@
+commit 33b785d5aa61aae40fe18a04bbba37a47c23bbb4
+Merge: a822c2e 8505cb0
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Sat May 25 13:51:18 2024 -0600
+
+    Merge pull request #17 from RosaMartinez23/cambios
+    
+    Corrección Interfaz Stock
+
+commit 8505cb0bf23ac4756ef64bc0730c76857044b130
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Sat May 25 13:43:26 2024 -0600
+
+    Corrección Interfaz Stock
+
+commit a822c2eea200e12ccd5eed0cbfedb38fc2f6bfc9
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Fri May 24 09:18:56 2024 -0600
+
+    Actualizando log commits
+
 commit 6b69d3c61e8277094a687e29f209b20ff09aeaa8
 Merge: 9855238 e305cab
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
