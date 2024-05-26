@@ -21,8 +21,8 @@ function POS() {
 
     // Areglo para poner la API DE CATEGORIAS
     const categories = [
-        { name: "Pescado", image: "fish", alt: "Pescado" },
-        { name: "Verduras", image: "vegetables", alt: "Verduras" },
+        { name: "Pescado", image: "https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750105535626L.jpg?odnHeight=580&odnWidth=580&odnBg=FFFFFF", alt: "Pescado" },
+        { name: "Verduras", image: "https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750036600500L.jpg?odnHeight=580&odnWidth=580&odnBg=FFFFFF", alt: "Verduras" },
         { name: "Frutas", image: "fruits", alt: "Frutas" },
         { name: "Congelados", image: "frozen", alt: "Congelados" },
         { name: "Pan", image: "pan", alt: "Pan" },
@@ -32,8 +32,8 @@ function POS() {
 
     //ARRELO PARA PONER LA API DE PRODUCTOS (DESCUENTO SI ES QUE TIENE, IMG, ALT TEXT, CANTIDAD, PRECIO, DEPARTAMENTO, NOMBRE)
     const products = [
-        { id: 1, discount: '52% Off', imageSrc: "yoghurt", altText: 'Yoghurt', count: '15', price: '$45', supplier: 'Abasur', productName: 'Yoghurt Griego 10g' },
-        { id: 2, discount: '52% Off', imageSrc: "connflakes", altText: 'CornFlakes', count: '23', price: '$35', supplier: 'Abasur', productName: 'Cereal CornFlakes 900g' },
+        { id: 1, discount: '52% Off', imageSrc: "https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750105535626L.jpg?odnHeight=580&odnWidth=580&odnBg=FFFFFF", altText: 'Yoghurt', count: '15', price: '$45', supplier: 'Abasur', productName: 'Yoghurt Griego 10g' },
+        { id: 2, discount: '52% Off', imageSrc: "https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750036600500L.jpg?odnHeight=580&odnWidth=580&odnBg=FFFFFF", altText: 'CornFlakes', count: '23', price: '$35', supplier: 'Abasur', productName: 'Cereal CornFlakes 900g' },
         { id: 3, discount: '52% Off', imageSrc: "tomato", altText: 'Tomato', count: '43', price: '$20', supplier: 'Central de Abastos', productName: 'Tomate 1kg' },
         { id: 4, discount: '52% Off', imageSrc: "bimbo", altText: 'Pan Bimbo', count: '56', price: '$38', supplier: 'Abasur', productName: 'Pan Bimbo 377g' },
         { id: 5, discount: '52% Off', imageSrc: "IceCream", altText: 'Helado Sabor Chocolate', count: '3', price: '$60', supplier: 'Helados', productName: 'Helado Sabor Chocolate 900g' },
