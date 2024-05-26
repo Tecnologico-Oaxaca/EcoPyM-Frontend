@@ -25,8 +25,23 @@ const createUsers = async (usersdata) => {
       }
     }
   };
+  const updateUser = async (userId, updateData) => {
+    try {
+      const response = await axios.patch(`http://localhost:8000/api/users/${userId}`, updateData);
+      return response.data;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        throw error.response.data.errors;
+      } else {
+        throw new Error('Error en la validacion de los datos');
+      }
+    }
+  };
+  
+
   export { 
     createUsers,
-    verifyCode
+    verifyCode,
+    updateUser,
   };
   
