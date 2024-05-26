@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../../img/LogoEcoPyM.png";
 import { BsEnvelope } from "react-icons/bs";
 import { MdLockOutline } from "react-icons/md";
 import "./Login.css";
 import { useNavigate } from 'react-router-dom';
-
+import ModalCode from "../ModalCode/ModalCode";
 
 
 function Login() {
 
     const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
 
     const GoToRegistration = () => {
         navigate('/registro');
     };
     const GoToCode = () => {
-      navigate('/Code');
-  };
+      setShowModal(!showModal);
+    };
+    const onNo = () => {
+      setShowModal(false); 
+    };
+
 
   return (
     <div className="login-container">
+      {showModal && <ModalCode onClose={onNo} />}
       <div className="login-left">
         <div className="login-section1"></div>
         <div className="login-section2"></div>

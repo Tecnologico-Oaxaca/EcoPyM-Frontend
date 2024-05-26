@@ -9,9 +9,9 @@ import LayoutHome from './Components/LayoutFormHome/LayoutFormHome';
 import Owner from './Components/Owner/Owner';
 import Company from './Components/Company/Company';
 import Employee from './Components/Employee/Employee';
-import RegisterCode from './Components/Employee/RegisterCode'; 
 import Dashboard from './Components/Dashboard/Dashboard'; 
 import Stock from './Components/Stock/Stock';
+import RegisterCode from './Components/Employee/RegisterCode';
 
 function App() {
 
