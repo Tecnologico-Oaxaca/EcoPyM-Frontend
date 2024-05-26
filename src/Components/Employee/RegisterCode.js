@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import { updateUser } from '../../services/apiUsersService';
 import "./RegisterCode";
 import { useNavigate } from 'react-router-dom';
 import { FaCamera } from "react-icons/fa";
@@ -20,8 +21,18 @@ function RegisterCode() {
     const [ConfirmEmployeepassword, setConfirmOwnerPassword] = useState('');
     const [notification, setNotification] = useState({ show: false, message: "" });
     const [passwordError] = useState('');
+    const [userId, setUserId] = useState(null); 
     const navigate = useNavigate();
     const fileInputRef = useRef();
+
+    useEffect(() => {
+        const storedData = sessionStorage.getItem('userData');
+        if (storedData) {
+            const userData = JSON.parse(storedData);
+            setEmployeeName(userData.name || "");
+            setUserId(userData.id);
+        }
+    }, []);
 
 
     const OwnerhandleClick = async (e) => {
@@ -36,14 +47,26 @@ function RegisterCode() {
             setConfirmOwnerPassword('');
         } 
         else {
-            console.log( employeeImage);
-            console.log( Employeename);
-            console.log( EmployeelastName);
-            console.log( Employeephone);
-            console.log( Employeeemail);
-            console.log( Employeepassword);
-
-            navigate('/Menu');
+            try {
+                const userData = {
+                  name: Employeename,
+                  last_name: EmployeelastName,
+                  phone: Employeephone,
+                  email: Employeeemail,
+                  password: Employeepassword,
+                };
+                await updateUser(userId,userData);
+                sessionStorage.removeItem('userData');
+                navigate('/Menu');
+              } catch (error) {
+                if (error instanceof Error) {
+                  setNotification({ show: true, message: error.message });
+                } else {
+                  Object.values(error).flat().forEach(msg => {
+                    setNotification({ show: true, message: msg }); 
+                  });
+                }
+              }
         }
     };
     const GoToLogin = () => {

@@ -23,7 +23,8 @@ function ModalCode({ onClose }) {
             const verifyData = {
               code: code
             };
-            await verifyCode(verifyData);
+            const response = await verifyCode(verifyData);
+            sessionStorage.setItem('userData', JSON.stringify(response.data));
             navigate('/code/');
           } catch (error) {
             if (error instanceof Error) {
