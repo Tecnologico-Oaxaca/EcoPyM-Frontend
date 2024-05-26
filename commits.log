@@ -1,3 +1,24 @@
+commit 4713dfac02913a44b378c3a0a40717110fd8ac6f
+Merge: 2cfc016 71480ed
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Sat May 25 18:36:22 2024 -0600
+
+    Merge pull request #19 from RosaMartinez23/Registro
+    
+    Creación del Modal para Código
+
+commit 71480edb4ce0d19fde65bb6fd76ac4b66d73489d
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Sat May 25 18:17:54 2024 -0600
+
+    Creación del Modal para Codigo
+
+commit 2cfc016e8de4a25d0e8836f79419b6537265b0c8
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Sat May 25 16:00:41 2024 -0600
+
+    Actualizando log commits
+
 commit cdb5c457e1f34a138e64319b57da059882d0d388
 Merge: 2433ab4 156f4c2
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
