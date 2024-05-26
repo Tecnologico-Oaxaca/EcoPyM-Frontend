@@ -12,6 +12,7 @@ import Employee from './Components/Employee/Employee';
 import Dashboard from './Components/Dashboard/Dashboard'; 
 import Stock from './Components/Stock/Stock';
 import RegisterCode from './Components/Employee/RegisterCode';
+import Users from './Components/Users/Users';
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
     { id: 1, path: "/Menu", title: "Inicio", Icon: RiUser3Fill },
     { id: 2, path: "/Menu/MisVentas", title: "Ventas", Icon: SiHomeassistantcommunitystore },
     { id: 3, path: "/Menu/MisUsuarios", title: "Usuarios", Icon: HiMiniUserGroup },
-    { id: 4, path: "Menu/MisProductos", title: "Productos", Icon: HiMiniUserGroup },
+    { id: 4, path: "/Menu/MisProductos", title: "Productos", Icon: HiMiniUserGroup },
     { id: 5, path: "/Menu/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup }
   ];
 
@@ -54,7 +55,8 @@ function App() {
       </Route>
       <Route path='/Menu' element={<LayoutHome sections1={MenuSections1} sections2={MenuSections2} />}>
           <Route index element={<Dashboard />} />
-          <Route path='MisVentas' element={<Stock />} />
+          <Route path='MisUsuarios' element={<Users />} />
+          <Route path='MisProductos' element={<Stock />} />
       </Route>
 
       </Routes>
