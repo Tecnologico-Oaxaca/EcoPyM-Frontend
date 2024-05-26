@@ -1,3 +1,24 @@
+commit 096c6dc0c5b577bdcc34562923881471925b61bd
+Merge: 351df85 6ed99ae
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Sun May 26 01:24:18 2024 -0600
+
+    Merge pull request #23 from RosaMartinez23/Employee
+    
+    Creación de la interfaz usuarios
+
+commit 6ed99ae3c9172ed695dabbbdd28325f025346c6d
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Sun May 26 01:21:33 2024 -0600
+
+    Creación de la interfaz usuarios
+
+commit 351df85f4df411a17d9f11eafc35481788f92e22
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Sun May 26 01:19:08 2024 -0600
+
+    Actualizando log commits
+
 commit 40d71ed935906a80036a60c2bbbb257862798477
 Merge: b05397d 0735828
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
