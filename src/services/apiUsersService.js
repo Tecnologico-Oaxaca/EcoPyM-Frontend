@@ -12,5 +12,21 @@ const createUsers = async (usersdata) => {
       }
     }
   };
-  export { createUsers };
+
+  const verifyCode = async (codeData) => {
+    try {
+      const response = await axios.post('http://localhost:8000/api/users/code', codeData);
+      return response.data; 
+    } catch (error) {
+      if (error.response && error.response.status === 422) {
+        throw error.response.data.errors; 
+      } else {
+        throw new Error('Error de conexión o servidor'); 
+      }
+    }
+  };
+  export { 
+    createUsers,
+    verifyCode
+  };
   
