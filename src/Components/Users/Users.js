@@ -106,7 +106,9 @@ function Users() {
             <div className="users-body">
                 {currentUsers.map((user, index) => (
                 <div key={user.id} className="users-body-container">
-                    <img className="users-container-img" src={user.imageSrc} alt="Foto del Personal" />
+                    <div class="image-container">
+                        <img className="users-container-img" src={user.imageSrc} alt="Foto del Personal" />
+                    </div>
                     <div className="users-body-container-info">
                         <p className="user-body-name">{user.name}</p>
                         <p className="user-body-rol">{user.role}</p>
