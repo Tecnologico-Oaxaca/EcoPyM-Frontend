@@ -1,3 +1,24 @@
+commit 40d71ed935906a80036a60c2bbbb257862798477
+Merge: b05397d 0735828
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Sun May 26 01:17:18 2024 -0600
+
+    Merge pull request #22 from SoyFroylanMtz/fin
+    
+    Consumo Api Code-UserCode
+
+commit 0735828cafe8d8a82e58284f70772fed071116d0
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Sun May 26 01:16:08 2024 -0600
+
+    Consumo Api Code-UserCode
+
+commit b05397de86a50dc9d6df56b63da2f6f615a3504d
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Sat May 25 23:50:36 2024 -0600
+
+    Actualizando log commits
+
 commit 1264425b53bb9059325b9cc76d4f2b2e53411e74
 Merge: 8138b63 ca37d12
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
