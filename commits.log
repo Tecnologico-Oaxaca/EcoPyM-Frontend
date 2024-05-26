@@ -1,3 +1,24 @@
+commit 1264425b53bb9059325b9cc76d4f2b2e53411e74
+Merge: 8138b63 ca37d12
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Sat May 25 23:49:10 2024 -0600
+
+    Merge pull request #21 from SoyFroylanMtz/rama
+    
+    Consumo Api VerifyCode
+
+commit ca37d122ad8630970574c000b44294a85b3b77d2
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Sat May 25 23:48:07 2024 -0600
+
+    Consumo Api VerifyCode
+
+commit 8138b63b7a588fd6ab6d16420c12ea6823343070
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Sat May 25 23:07:18 2024 -0600
+
+    Actualizando log commits
+
 commit 009f2bfc6c5d4de61aa7f30264f531c43d908f50
 Merge: 657d444 6c31617
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
