@@ -16,13 +16,14 @@
 
 /* Estilo del contenedor del modal */
 .modalProducts-content {
-    background-color: white;
-    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1001; /* Asegúrate de que el contenido está sobre el fondo oscuro */
     width: 90%; /* O ajusta según necesidad */
     max-width: 500px; /* O ajusta según necesidad */
+    height: auto;
 }
 
 .modalProducts-content input[type="text"] {
@@ -58,12 +59,19 @@
     font-weight: bold;
 }
 
+.products-title{
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: -2vh;
+    margin-top: 5px;
+}
+
 .modalProducts-checkboxes {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 100px; 
-    padding: 5px 0px 15px 0px;
+    padding: 0px 0px 5px 0px;
 }
 
 .modalProducts-checkboxes div {
@@ -136,6 +144,7 @@
     width:  80%;
     max-width: 400px;
     gap: 10vh;
+    flex-direction: column;
 }
 
 .products-label{
@@ -145,8 +154,8 @@
     position: relative;
     left: 5%;    
     transform: translateX(-50%);
-    width: 100px; /* Mantiene el círculo del mismo tamaño independientemente del contenido */
-    height: 100px;
+    width: 80px; /* Mantiene el círculo del mismo tamaño independientemente del contenido */
+    height: 80px;
     background-color: #00f8cf; 
     border-radius: 50%; 
     padding: 10px;
@@ -154,18 +163,18 @@
     align-items: center;
     justify-content: center;
     left: 50%; /* Centra el círculo horizontalmente */
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 /*dentro del input*/
 .produts-inputGroup input, select {
     flex: 1;
-    padding: 10px 5px;
+    padding: 7px 5px;
     border: 1.5px solid #ccc;
     border-radius: 8px;
     outline: none;
     background-color: transparent;
-    margin: 4px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
     width: 170px;
     color: #868383;
 }
@@ -173,12 +182,12 @@
 .products-inputGroupMedida input{
     width: 180px;
     flex: 1;
-    padding: 10px 25px;
+    padding: 7px 25px;
     border: 1.5px solid #ccc;
     border-radius: 8px;
     outline: none;
     background-color: transparent;
-    margin: 4px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
     color: #868383;
 
 }
@@ -202,7 +211,7 @@
 }
 .products-button-aceptar{
     background-color: #01BAB3;
-    padding: 15px;
+    padding: 5px;
     font-size: 20px;
     width: 100%;
     border-radius: 5px;
@@ -210,5 +219,36 @@
     color: white;
     font-weight: bolder;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .modalProducts-content {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-inputGroups-container, .products-inputGroupMedida, .products-custom-select {
+        width: 100%; 
+        max-width: none;
+    }
+}
+
+
+
+
+@media (min-width: 600px) {
+    .product-inputGroups-container {
+        flex-direction: row; /* En pantallas más grandes, usa fila para aprovechar el espacio */
+        justify-content: space-between; /* Distribuye el espacio uniformemente */
+    }
+}
+
+
+@media (min-width: 600px) {
+    .modalProducts-checkboxes {
+        flex-direction: row; /* En pantallas más grandes, coloca los checkboxes en fila */
+        gap: 20px;
+    }
 }
 
