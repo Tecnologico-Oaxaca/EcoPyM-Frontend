@@ -135,7 +135,7 @@ function ModalProducts({ closeModal }) {
 
 
             <div className="modalProducts-header">
-                <p className="company-title">Detalles del Producto</p>
+                <p className="products-title">Detalles del Producto</p>
             </div>
 
 
