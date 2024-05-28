@@ -20,10 +20,11 @@ function ModalProducts({ closeModal }) {
     const [ProductProveedor, setProductProveedor] = useState("");
 
     const [withCode, setWithCode] = useState(true);
+    const [generatedCodes, setGeneratedCodes] = useState(new Set());
     const [bulk, setBulk] = useState(false);
     const [notification, setNotification] = useState({ show: false, message: "" });
 
-    
+
 
     const marcas =[
         { id: 1, name: 'La Costeña' },
@@ -57,29 +58,56 @@ function ModalProducts({ closeModal }) {
 
     //AQUI SE AGREGA LA API PARA INSERTAR EL REGISTRO
     const handleSubmit = (event) => {
-        event.preventDefault(); 
-            if (!ProductCode|| !ProductName || !ProductCantidad || !ProductUnit || !ProductAdquisicion || !ProductVenta || !ProductMarca || !ProductDepartamento) {
+        event.preventDefault();
+        //SI SE SELECCIONA A GRANEL
+        const effectiveProductCode = bulk ? generateRandomCode() : ProductCode;
+        const effectiveProductMarca = bulk ? null : ProductMarca;
+        const effectiveProductDepartamento = bulk ? null : ProductDepartamento;
+
+        if (bulk) {
+            if (!ProductName || !ProductCantidad || !ProductUnit || !ProductVenta) {
+                setNotification({
+                    show: true,
+                    message: "Por favor completa la información."
+                });
+                return;
+            }
+        } else {
+         
+            if (!ProductCode|| !ProductName || !ProductCantidad || !ProductUnit  || !ProductVenta || !ProductMarca || !ProductDepartamento) {
             setNotification({
                 show: true,
                 message: "Por favor completa la información."
             });
             return; 
         }
+        }
         
-        console.log(ProductCode);
-        console.log(ProductName);
-        console.log(ProductCantidad);
-        console.log(ProductUnit);
-        console.log(ProductAdquisicion);
-        console.log(ProductVenta);
-        console.log(ProductMarca);
-        console.log(ProductDepartamento);
-        console.log(withCode);
-        console.log(bulk);
+        console.log('Codigo:',effectiveProductCode);
+        console.log('Nombre:', ProductName);
+        console.log('Cantidad de Medida:',ProductCantidad);
+        console.log('Unidad de Medida:',ProductUnit);
+        console.log('Precio de Adquisición:',ProductAdquisicion);
+        console.log('Precio de venta:',ProductVenta);
+        console.log('Marca:',effectiveProductMarca);
+        console.log('Departamento:',effectiveProductDepartamento);
+        console.log('Existencias:', ProductExistencia);
+        console.log('Proveedor:', ProductProveedor);
+        console.log('',withCode);
+        console.log('',bulk);
         closeModal(); 
     };
 
-
+    const generateRandomCode = () => {
+        let randomNumber;
+        let newCode;
+        do {
+            randomNumber = Math.floor(10000 + Math.random() * 90000); // Genera un número aleatorio de cinco dígitos
+            newCode = `AG${randomNumber}`;
+        } while (generatedCodes.has(newCode)); // Repetir si el código ya existe
+        setGeneratedCodes(prevCodes => new Set(prevCodes).add(newCode)); // Añadir el nuevo código al set
+        return newCode;
+    };
 
     
 
@@ -139,22 +167,30 @@ function ModalProducts({ closeModal }) {
             </div>
 
 
-            <div className="modalProducts-body">
+            <div className={`modalProducts-body ${bulk ? 'bulk-active' : ''}`}>
                 <div className="products-Content-form">
                     <form className="products-main-form">
                     <div className="product-inputGroups-container">
+                        
                         <div className="produts-inputGroup">
-                            <label className='products-label' htmlFor="ProductCode">Codigo de barras</label>
-                            <div className="products-input-container">
-                                <input
-                                value={ProductCode}
-                                type="text"
-                                id="ProductCode"
-                                placeholder="1234567890"
-                                onChange={(e) => setProductCode(e.target.value)}
-                                required
-                                />
-                            </div>
+
+                            <div>
+                            {!bulk && (
+                                <div className="produts-inputGroup">
+                                    <label className='products-label' htmlFor="ProductCode">Codigo de barras</label>
+                                    <div className="products-input-container">
+                                        <input
+                                            value={ProductCode}
+                                            type="text"
+                                            id="ProductCode"
+                                            placeholder="1234567890"
+                                            onChange={(e) => setProductCode(e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                            )}
+                            </div> 
                             <label className='products-label' htmlFor="ProductName">Nombre</label>
                             <div className="products-input-container">
                                 <input
@@ -249,6 +285,7 @@ function ModalProducts({ closeModal }) {
                         </div>
                     </div>
                     <div className="products-inputGroupMedida">
+                    {!bulk && (
                         <div className="produts-inputGroupMedida">
                         <label className='products-label' htmlFor="ProductName">Marca</label>
                         <div className="company-input-container">
@@ -265,10 +302,12 @@ function ModalProducts({ closeModal }) {
                             </select>
                         </div>
                         </div>
+                    )}
                     </div>
 
 
                     <div className="products-inputGroupMedida">
+                    {!bulk && (
                         <div className="produts-inputGroupMedida">
                         <label className='products-label' htmlFor="ProductName">Departamento</label>
                         <div className="company-input-container">
@@ -285,6 +324,7 @@ function ModalProducts({ closeModal }) {
                             </select>
                         </div>
                         </div>
+                    )}
                     </div>
 
 
@@ -305,21 +345,33 @@ function ModalProducts({ closeModal }) {
                             </div>
                             </div>
                         </div>
-                        <div className="products-inputGroup">
-                            <label className='products-label' htmlFor="UnitName">Proveedor</label>
-                            <div className="company-input-container">
-                                <select className='products-custom-select'
-                                value={ProductProveedor}
-                                id="ProductsMarca"
-                                onChange={(e) => setProductProveedor(e.target.value)}
-                                required
-                                >
-                                <option value="">SELECCIONA EL PROVEEDOR</option>
-                                {Proveedor.map((prov) => (
-                                    <option key={prov.id} value={prov.id}>{prov.name}</option>
-                                ))}
-                                </select>
-                               
+                        <div className="products-inputGroupMedida">
+                            <div className="produts-inputGroupMedida">
+                                <label className='products-label' htmlFor="ProductProveedor">Proveedor</label>
+                                    <div className="company-input-container">
+                                    {bulk ? (
+                                        <input
+                                            value={ProductProveedor}
+                                            type="text"
+                                            id="ProductProveedor"
+                                            placeholder="Ingrese proveedor"
+                                            onChange={(e) => setProductProveedor(e.target.value)}
+                                            required
+                                        />
+                                    ) : (
+                                        <select className='products-custom-select'
+                                            value={ProductProveedor}
+                                            id="ProductsMarca"
+                                            onChange={(e) => setProductProveedor(e.target.value)}
+                                            required
+                                        >
+                                        <option value="">SELECCIONA EL PROVEEDOR</option>
+                                            {Proveedor.map((prov) => (
+                                                <option key={prov.id} value={prov.id}>{prov.name}</option>
+                                             ))}
+                                        </select>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -336,7 +388,7 @@ function ModalProducts({ closeModal }) {
                 </div>
             </div>
     </div>
-  )
+  );
 }
 
 export default ModalProducts
