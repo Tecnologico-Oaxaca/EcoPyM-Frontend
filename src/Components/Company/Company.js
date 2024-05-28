@@ -14,7 +14,7 @@ import { FaChevronCircleRight } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import Notification from '../Notification/Notification';
 
-function Company() {
+function Company() { 
 
 
   const [CompanyName, setCompanyName] = useState("");

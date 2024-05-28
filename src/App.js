@@ -13,6 +13,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Stock from './Components/Stock/Stock';
 import RegisterCode from './Components/Employee/RegisterCode';
 import Users from './Components/Users/Users';
+import Sales from './Components/Sales/Sales';
 import Trend from './Components/Trend/Trend';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
       </Route>
       <Route path='/Menu' element={<LayoutHome sections1={MenuSections1} sections2={MenuSections2} />}>
           <Route index element={<Dashboard />} />
+          <Route path='MisVentas' element={<Sales />} />
           <Route path='MisUsuarios' element={<Users />} />
           <Route path='MisProductos' element={<Stock />} />
           <Route path='Tendencias' element={<Trend />} />

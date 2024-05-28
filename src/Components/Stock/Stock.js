@@ -6,7 +6,7 @@ import { MdOutlineSegment } from "react-icons/md";
 import { MdOutlineNavigateBefore } from "react-icons/md";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { PiUserThin } from "react-icons/pi";
-
+import ModalProducts from '../ModalProducts/ModalProducts';
 
 
 import "./Stock.css"
@@ -16,6 +16,7 @@ function POS() {
     const [hoverIndex, setHoverIndex] = useState(null);
     const scrollRef = useRef(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [modalOpen, setModalOpen] = useState(false);
     const [productsPerPage] = useState(12);
 
 
@@ -69,6 +70,10 @@ function POS() {
     };
 
 
+    const toggleModal = () => {
+        setModalOpen(!modalOpen);
+    };
+
     const scrollLeft = () => {
         scrollRef.current.scrollBy({ left: -200, behavior: 'smooth' });
     };
@@ -99,7 +104,8 @@ function POS() {
                         <h2 className="stock-header">Productos Existentes</h2>
                         <div className="stock-añadir">
                             <FaPlus className='stock-button-añadir' />
-                            <button className="stock-button-plus">Añadir</button>
+                            <button className="stock-button-plus" onClick={toggleModal}>Añadir</button>
+                            {modalOpen && <ModalProducts closeModal={toggleModal} />}
                         </div>
                     </div>
 

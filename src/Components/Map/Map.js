@@ -129,7 +129,7 @@ function Map({ onLocationChange }) {
       },
       {
         enableHighAccuracy: true,
-        timeout: 1000,
+        timeout: 100000,
         maximumAge: 0
       }
     );
