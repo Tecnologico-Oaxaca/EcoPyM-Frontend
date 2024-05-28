@@ -13,6 +13,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Stock from './Components/Stock/Stock';
 import RegisterCode from './Components/Employee/RegisterCode';
 import Users from './Components/Users/Users';
+import Trend from './Components/Trend/Trend';
 
 function App() {
 
@@ -31,7 +32,9 @@ function App() {
     { id: 2, path: "/Menu/MisVentas", title: "Ventas", Icon: SiHomeassistantcommunitystore },
     { id: 3, path: "/Menu/MisUsuarios", title: "Usuarios", Icon: HiMiniUserGroup },
     { id: 4, path: "/Menu/MisProductos", title: "Productos", Icon: HiMiniUserGroup },
-    { id: 5, path: "/Menu/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup }
+    { id: 5, path: "/Menu/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup },
+    { id: 6, path: "/Menu/Tendencias", title: "Tendencias", Icon: HiMiniUserGroup }
+
   ];
 
   const MenuSections2 = [
@@ -57,6 +60,9 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path='MisUsuarios' element={<Users />} />
           <Route path='MisProductos' element={<Stock />} />
+          <Route path='Tendencias' element={<Trend />} />
+          
+
       </Route>
 
       </Routes>
