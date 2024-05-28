@@ -1,0 +1,42 @@
+
+.sales-container{
+    display: flex;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: space-between;
+    background-color: #0e91d3;
+    width: auto;
+}
+.sales-container-section1{
+    width: 65%;
+    overflow-y: auto;
+    position: relative;
+    padding: 0px 10px 50px 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.sales-search-container{
+    display: flex;
+    justify-content: right; 
+    margin: 15px 0;
+}
+.sales-search-form{
+    display: flex;
+    width: 100%; 
+    max-width: 400px; 
+    align-items: center;
+}
+.sales-search-input{
+    flex-grow: 1; 
+    border: 1px solid rgb(255, 255, 255); 
+    padding: 20px;
+    font-size: 16px; 
+    border-radius: 10px;
+    border-color: #ffffff;
+    box-shadow: #000000;
+    outline: none;
+}

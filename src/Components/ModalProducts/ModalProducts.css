@@ -74,6 +74,22 @@
     padding: 0px 0px 5px 0px;
 }
 
+.products-main-form {
+    display: flex;
+    flex-direction: column;
+}
+.bulk-active .products-main-form {
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-inputGroups-container, .company-inputGroups-container {
+    width: 100%;
+}
+
+.bulk-active .product-inputGroups-container, .bulk-active .company-inputGroups-container {
+    width: 48%; /* Ajusta según sea necesario para tu diseño */
+}
+
 .modalProducts-checkboxes div {
     display: flex; /* Establece flex para los div internos */
     align-items: center; /* Alinea verticalmente los elementos dentro del div */
