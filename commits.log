@@ -1,3 +1,18 @@
+commit 504af8c3cb7af2a59ebb7700111f77af447c3889
+Merge: 76865b4 c4cbb22
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Wed May 29 03:22:43 2024 -0600
+
+    Merge pull request #30 from davidrolito7/main
+    
+    Tendencias de varon
+
+commit 76865b47f712a99072c0c459d9a5e9b903cdf002
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Wed May 29 03:21:50 2024 -0600
+
+    Actualizando log commits
+
 commit 4ad8836cc3950a8901dda4e9ca5fb21d7e49e56f
 Merge: 80901ab f6532d6
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
@@ -27,6 +42,19 @@ Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
 Date:   Tue May 28 18:13:29 2024 -0600
 
     Creación iinterfaz Ventas
+
+commit c4cbb22a287b510d4201d625860cc477ec577d02
+Merge: 61f073e 8fed283
+Author: davidrolito7 <139143108+davidrolito7@users.noreply.github.com>
+Date:   Tue May 28 09:39:37 2024 -0600
+
+    Merge branch 'main' into main
+
+commit 61f073e1c2ca4521d715393164a0db7469cbe89d
+Author: David <dvirdr7@gmail.com>
+Date:   Tue May 28 09:35:33 2024 -0600
+
+    Tendencias
 
 commit 8fed28375184340c09592649dbcd88a17b5f55ee
 Merge: 48d1753 ddbe4b0
