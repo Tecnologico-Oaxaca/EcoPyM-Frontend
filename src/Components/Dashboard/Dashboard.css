@@ -1,0 +1,51 @@
+
+.dashboard-container-total{
+    width: 100%;
+    height: 100%;
+    background-color: #e7f3f9;
+}
+.dashboard-container{
+    margin: 0% 2% 0% 2%;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-container-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: brown;
+    text-align: left;
+}
+
+.dashboard-calendar{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.highlight-range {
+    background-color: skyblue !important;
+    color: white;
+  }
+  
+.highlight-today {
+    background-color: blue !important;
+    color: white;
+  }
+
+  .dashboard-container-seccion1 {
+    display: flex; /* Activamos Flexbox */
+    justify-content: space-between; /* Esto separa los elementos equitativamente */
+    align-items: stretch; /* Esto hace que los elementos internos se estiren para llenar el contenedor */
+}
+
+.dashboard-container-ingreso,
+.dashboard-container-perdidos,
+.dashboard-container-rendimiento {
+    flex: 1; /* Asigna igual espacio a cada elemento */
+    margin: 5px; /* Opcional: agrega un margen entre los elementos */
+    width: 30%;
+    height: 30%;
+
+}
