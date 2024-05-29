@@ -1,3 +1,54 @@
+commit 4ad8836cc3950a8901dda4e9ca5fb21d7e49e56f
+Merge: 80901ab f6532d6
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Wed May 29 03:20:05 2024 -0600
+
+    Merge pull request #31 from SoyFroylanMtz/ventas
+    
+    mensaje
+
+commit f6532d652581cd657ea681fe0c10cffcc3ce5bdf
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Wed May 29 03:19:16 2024 -0600
+
+    mensaje
+
+commit 80901ab637f25bd4ad43477faa203b65ec68222a
+Merge: 8fed283 15fd801
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Tue May 28 18:23:59 2024 -0600
+
+    Merge pull request #29 from RosaMartinez23/ventas
+    
+    Creación interfaz Ventas
+
+commit 15fd801d70461277fc6bfcbb0f6d9279950e18be
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Tue May 28 18:13:29 2024 -0600
+
+    Creación iinterfaz Ventas
+
+commit 8fed28375184340c09592649dbcd88a17b5f55ee
+Merge: 48d1753 ddbe4b0
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Mon May 27 18:56:00 2024 -0600
+
+    Merge pull request #27 from RosaMartinez23/Registro
+    
+    Complemento Componente ModalProducts
+
+commit ddbe4b0ca40c9ba7b7b2cf32962c166c7233ca64
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Mon May 27 18:53:13 2024 -0600
+
+    Complemento Componente ModalProducts
+
+commit 48d1753f81b1765d8554817791ee2727b7b1579c
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Mon May 27 08:38:56 2024 -0600
+
+    Actualizando log commits
+
 commit 740ed3f95b82df489eb14498e9f25999ba09424b
 Merge: 53c70bf 9ec9827
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
