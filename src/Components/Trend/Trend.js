@@ -1,42 +1,74 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Trend.css';
 import { getCompararTendencias } from '../../services/apiTrendsService';
 
-const imagePlaceholder = 'https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750036600500L.jpg?odnHeight=580&odnWidth=580&odnBg=FFFFFF';
-
-// ProductCard Component
-const ProductCard = ({ imageUrl, altText, discount, title, description }) => (
-  <div className="product-card">
-    <img src={"https://i.ibb.co/7yd6N6N/Capture-2024-05-28-084104.png"} alt={altText} className="product-card-img" />
-    {discount && <div className="discount-badge">{discount}</div>}
-    <h2 className="mt-4 text-lg font-semibold dark:text-white">{title}</h2>
-    <p className="text-class">{description}</p>
-  </div>
-);
-
-
-// Trend Component
 const Trend = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const scrollRef1 = useRef(null);
+  const [trendingProducts, setTrendingProducts] = useState([]);
+  const [nearProducts, setNearProducts] = useState([]);
+  const [temporadaProducts, setTemporadaProducts] = useState([]);
+  const [currentTemporadaIndex, setCurrentTemporadaIndex] = useState(0);
+  const trendingProductsRef = useRef(null);
+  const temporadaProductsRef = useRef(null);
+  const slideIntervalRef = useRef(null);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchTrendingProducts = async () => {
       try {
-        const data = await getCompararTendencias();
-        setProducts(data);
+        const data = await getCompararTendencias(1); // Obtener productos con category_id=1
+        setTrendingProducts(data);
       } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
+        console.error('Error fetching trending products:', error);
       }
     };
 
-    fetchProducts();
+    const fetchNearProducts = async () => {
+      try {
+        const data = await getCompararTendencias(3); // Obtener productos con category_id=3
+        setNearProducts(data);
+      } catch (error) {
+        console.error('Error fetching near products:', error);
+      }
+    };
+
+    const fetchTemporadaProducts = async () => {
+      try {
+        const data = await getCompararTendencias(2); // Obtener productos con category_id=2
+        setTemporadaProducts(data);
+      } catch (error) {
+        console.error('Error fetching temporada products:', error);
+      }
+    };
+
+    fetchTrendingProducts();
+    fetchNearProducts();
+    fetchTemporadaProducts();
   }, []);
+
+  useEffect(() => {
+    startSlideShow();
+    return () => stopSlideShow(); // Clean up on component unmountt
+  }, [temporadaProducts]);
+
+  const startSlideShow = () => {
+    stopSlideShow(); // Ensure no existing interval is running
+    slideIntervalRef.current = setInterval(() => {
+      setCurrentTemporadaIndex((prevIndex) => (prevIndex + 1) % temporadaProducts.length);
+    }, 2000); // Change every 3 seconds
+  };
+
+  const stopSlideShow = () => {
+    if (slideIntervalRef.current) {
+      clearInterval(slideIntervalRef.current);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    stopSlideShow();
+  };
+
+  const handleMouseLeave = () => {
+    startSlideShow();
+  };
 
   const scrollLeft = (ref) => {
     ref.current.scrollBy({ left: -200, behavior: 'smooth' });
@@ -46,94 +78,67 @@ const Trend = () => {
     ref.current.scrollBy({ left: 200, behavior: 'smooth' });
   };
 
-  if (loading) return <div>Cargando...</div>;
-  if (error) return <div>Error: {error}</div>;
-
   return (
-    <div className="trend-container">
-      <h2>Nuevos Productos</h2>
-      <div className="scroll-container">
-        <button onClick={() => scrollLeft(scrollRef1)} className="scroll-button">{"<"}</button>
-        <div className="product-scroll" ref={scrollRef1}>
-          <ProductList products={products} />
-        </div>
-        <button onClick={() => scrollRight(scrollRef1)} className="scroll-button">{">"}</button>
-      </div>
-    </div>
-  );
-};
-
-// ProductList Component
-const ProductList = ({ products }) => {
-  return (
-    <div className="product-list">
-      {products.map(product => (
-        <div key={product.id} className="product">
-          <img src={product.image_url} alt={product.description} />
-          <div className="product-info">
-            <div className="product-name">{product.description}</div>
-            {product.brand && <div className="product-brand">{product.brand}</div>}
-            {product.price && <div className="product-price">{product.price}</div>}
+    <div className="dashboard">
+      <section className="header">
+        <div className="header-content">
+          <h1>Ola de calor</h1>
+          <p>Preparate para este verano, tus clientes necesitarán...</p>
+          <div className="header-buttons">
+            <button className="start-shopping">¿No sabes que vender?</button>
           </div>
         </div>
-      ))}
-    </div>
-  );
-};
-
-// MainBanner Component
-const MainBanner = () => {
-  return (
-    <div className="main-banner">
-      <Trend />
-    </div>
-  );
-};
-
-// ProductGrid Component
-const ProductGrid = () => {
-  return (
-    <div className="bg-white dark:bg-zinc-800 p-4">
-      <MainBanner />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-        <ProductCard
-          imageUrl="400x300"
-          altText="Ola de calor"
-          title="Ola de calor"
-          description="Pepara a tus clientes para este verano"
-        />
-       
+        {temporadaProducts.length > 0 && (
+          <div
+            className="products-grid"
+            ref={temporadaProductsRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="product-card1" key={temporadaProducts[currentTemporadaIndex].id}>
+              <img src={temporadaProducts[currentTemporadaIndex].image_url} alt={temporadaProducts[currentTemporadaIndex].description} />
+              <p className="product-price">${temporadaProducts[currentTemporadaIndex].price}</p>
+              <p className="product-brand">{temporadaProducts[currentTemporadaIndex].brand}</p>
+              <h3>{temporadaProducts[currentTemporadaIndex].description}</h3>
+            </div>
+          </div>
+        )}
+      </section>
+      <section className="trending-products">
+        <h2>Productos en tendencia</h2>
+        <button className="scroll-button left" onClick={() => scrollLeft(trendingProductsRef)}>👈</button>
+        <div className="products-grid" ref={trendingProductsRef}>
+          {trendingProducts.map((product) => (
+            <div className="product-card3" key={product.id}>
+              <img src={product.image_url} alt={product.description} />
+              <p className="product-price">${product.price}</p>
+              <p className="product-brand">{product.brand}</p>
+              <h3>{product.description}</h3>
+            </div>
+          ))}
+        </div>
+        <button className="scroll-button right" onClick={() => scrollRight(trendingProductsRef)}>👉</button>
+      </section>
+      <section className="near-products">
+  <h2>Artículos populares cerca de ti!</h2>
+  <div className="products-grid1">
+    {nearProducts.map((product) => (
+      <div className="product-card4" key={product.id}>
+        <img src={product.image_url} alt={product.description} />
+        <div className="product-card4-content">
+          <h3>{product.description}</h3>
+          <p className="product-brand">{product.brand}</p>
+          <p className="product-price">${product.price}</p>
+        </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5">
-        <ProductCard
-          imageUrl="300x400"
-          altText="Longines Masters"
-          discount="-27%"
-          title="Longines Masters"
-          description="Experience the magic of Longines Masters"
-        />
-        <ProductCard
-          imageUrl="300x400"
-          altText="Headphones"
-          discount="-6%"
-          title="Headphones"
-          description="High quality sound"
-        />
-        <ProductCard
-          imageUrl="300x400"
-          altText="Sofa"
-          discount="-18%"
-          title="Sofa"
-          description="Comfortable and stylish"
-        />
-      </div>
+    ))}
+  </div>
+</section>
+
     </div>
   );
 };
 
-// ProductPage Component
-const ProductPage = () => {
-  return <ProductGrid />;
-};
 
-export default ProductPage;
+
+export default Trend;
