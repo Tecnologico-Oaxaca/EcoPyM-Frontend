@@ -1,0 +1,168 @@
+/* Trend.css */
+
+.trend-container {
+    padding: 0px;
+    position: relative;
+  }
+  
+  .trend-container h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .scroll-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .scroll-button {
+    background-color: #482136;
+    border: none;
+    color: rgb(223, 216, 216);
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .scroll-button:hover {
+    background-color: #2382AA;
+  }
+  
+  .product-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0px;
+    flex-grow: 1;
+  }
+  
+  .product-list {
+    display: flex;
+  }
+  
+  .product {
+    margin-right: 15px;
+    flex-shrink: 0;
+    width: 200px; /* Ancho de cada producto */
+  }
+  
+  .product img {
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+  }
+  
+  .product-info {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+  }
+  
+  .product-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #46474a;
+  }
+  
+  .product-brand, .product-price {
+    font-size: 14px;
+    color: #46474a;
+  }
+
+
+/* Dashboard.css */
+
+.product-card {
+  position: relative;
+  background-color: rgb(207, 189, 51);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.product-car2 {
+  position: relative;
+  background-color: rgb(51, 67, 207);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: red;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.text-class {
+  color: #4A5568;
+}
+
+.button-class {
+  margin-top: 1rem;
+  background-color: #ECC94B;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.main-banner {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-banner-content {
+  position: relative;
+  inset: 0;
+  background-color: rgba(7, 5, 24, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 1.5rem;
+}
+
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(2, 1fr);
+  
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.mt-6 {
+  margin-top: 10rem;
+}
+.mt-5 {
+  margin-top: 2%;
+}
+
