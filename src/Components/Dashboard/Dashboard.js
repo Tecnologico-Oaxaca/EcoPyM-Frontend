@@ -5,8 +5,20 @@ import { MdOutlineSegment } from "react-icons/md";
 import "./Dashboard.css"
 import { PiUserThin } from "react-icons/pi";
 
+import React, { useState } from 'react'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { MdOutlineSegment } from "react-icons/md";
+import "./Dashboard.css"
+import { PiUserThin } from "react-icons/pi";
+
 
 function Dashboard() {
+
+  const [dateRange, setDateRange] = useState([new Date(), null]);
+  const [startDate, endDate] = dateRange;
+  const [isOpen, setIsOpen] = useState(false);
+
 
   const [dateRange, setDateRange] = useState([new Date(), null]);
   const [startDate, endDate] = dateRange;
