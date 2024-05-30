@@ -2,7 +2,7 @@
   font-family: Arial, sans-serif;
   color: #000000;
   padding: 20px;
-  background-color: #c3f1ac;
+  background-color: #e7f3f9;
 }
 
 .header {
@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
-  background-image: url('https://i.ibb.co/sKbgdBV/Capture-2024-05-29-022713.png');
+  background-image: url('https://i.ibb.co/VMRbRd5/Capture-2024-05-29-131152.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -67,7 +67,7 @@
   flex: 1;
   border: 1px solid #c29090;
   padding: 10px; /* Tamaño ajustado */
-  background-color: #fef08a;
+  background-color: #ffffff;
   border-radius: 10px;
   text-align: center;
   margin-right: 20px; /* Añadir margen derecho */
@@ -78,9 +78,9 @@
 
 .product-card2 {
   flex: 1;
-  border: 1px solid #53b67b;
+  border: 1px solid #bcf3f8;
   padding: 20px;
-  background-color: #b3cde0;
+  background-color: #ffffff;
   border-radius: 10px;
   text-align: center;
   max-width: 200px;
@@ -99,7 +99,7 @@
   position: relative;
   text-align: center;
   margin-top: 40px;
-  background-color: #c0dde1;
+  background-color: #e7f3f9;
   margin-bottom: 20px;
 }
 
@@ -158,7 +158,7 @@
 .product-brand {
   font-size: 18px;
   margin: 0;
-  color: rgb(146, 146, 168);
+  color: rgb(255, 255, 255);
   font-weight: bold; /* Hace el texto en negrita */
   margin-top: 0px;
 }
@@ -203,9 +203,8 @@
 .product-card4 {
   display: flex;
   align-items: center;
-  border: 1px solid #989393;
-  padding: 15px;
-  background-color: #c9883e;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);  padding: 10px;
+  background-color: #ffffff;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
   width: 100%;
@@ -224,8 +223,7 @@
   max-width: 150px;
   border-radius: 5px;
   object-fit: cover;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: none;
 }
 
 .product-card4-content {
