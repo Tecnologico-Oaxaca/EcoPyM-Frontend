@@ -87,6 +87,7 @@
     border-radius: 10px;
     background-color: #ffffff;
     max-height: 390px;
+    height: 50vh;
     padding-right: 30px;
     box-sizing: content-box;
 }
@@ -97,7 +98,7 @@
     border-radius: 10px;
     border: 1px solid #E6EDFF; 
     box-shadow: 6px solid #000000;
-    margin-top: 40px;
+    margin-top: 40px;   
 }
 
 .sales-table-header {
