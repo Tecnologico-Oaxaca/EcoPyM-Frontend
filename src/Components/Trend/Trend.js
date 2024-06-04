@@ -82,8 +82,8 @@ const Trend = () => {
     <div className="dashboard">
       <section className="header">
         <div className="header-content">
-          <h1>Ola de calor</h1>
-          <p>Preparate para este verano, tus clientes necesitarán...</p>
+          <h1></h1>
+          <p></p>
           <div className="header-buttons">
             <button className="start-shopping">¿No sabes que vender?</button>
           </div>
@@ -105,7 +105,7 @@ const Trend = () => {
         )}
       </section>
       <section className="trending-products">
-        <h2>Productos en tendencia</h2>
+        <h2>Trending Topics</h2>
         <button className="scroll-button left" onClick={() => scrollLeft(trendingProductsRef)}>👈</button>
         <div className="products-grid" ref={trendingProductsRef}>
           {trendingProducts.map((product) => (
@@ -120,7 +120,7 @@ const Trend = () => {
         <button className="scroll-button right" onClick={() => scrollRight(trendingProductsRef)}>👉</button>
       </section>
       <section className="near-products">
-  <h2>Artículos populares cerca de ti!</h2>
+  <h2>Articulos a tu alrededor!</h2>
   <div className="products-grid1">
     {nearProducts.map((product) => (
       <div className="product-card4" key={product.id}>
