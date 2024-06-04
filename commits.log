@@ -1,3 +1,24 @@
+commit 0af4456f083705f0570ae3e40c6bf96b6451e3c9
+Merge: 3f5b241 7b20ae7
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Tue Jun 4 08:04:04 2024 -0600
+
+    Merge pull request #39 from RosaMartinez23/Modal
+    
+    ModalCode con console.log
+
+commit 7b20ae71dcaca5d907cedb8b96f171a757002f2a
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Mon Jun 3 23:56:28 2024 -0600
+
+    ModalCode con console.log
+
+commit 3f5b241d6c455faadc0667620a318c465d20ed77
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Mon Jun 3 22:53:50 2024 -0600
+
+    Actualizando log commits
+
 commit 2abaf616d14caacbcbc0d7c007bf3255819fae22
 Merge: 27d3d86 8cec0b3
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
