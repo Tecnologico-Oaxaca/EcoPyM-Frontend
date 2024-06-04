@@ -31,7 +31,19 @@ const searchProductById = async (id) => {
 };
 
 
+const activateProduct = async (id, updatedData) => {
+    try {
+        const response = await axios.patch(`http://localhost:8000/api/products/${id}`, updatedData);
+        console.log('Producto actualizado:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error al actualizar el producto:', error.response.data);
+        throw error;
+    }
+};
+
 export {
     handleSearchChange,
-    searchProductById
+    searchProductById,
+    activateProduct
 };

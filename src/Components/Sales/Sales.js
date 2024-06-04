@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { searchProductById } from '../../services/apiSaleService';
+import { searchProductById, activateProduct } from '../../services/apiSaleService';
 import ModalCode from '../ModalCode/ModalCode';
 import './Sales.css';
 import { MdOutlineSegment } from "react-icons/md";
@@ -17,7 +17,7 @@ function Sales() {
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
-    const [currentProduct, setCurrentProduct] = useState(null); 
+    const [currentProduct] = useState(null); 
 
     const handleSearchSubmit = async (event) => {
         event.preventDefault();
@@ -50,7 +50,7 @@ function Sales() {
                 } else {
                     setShowModal(true);  // Mostrar el modal si el producto no está activo
                 }
-                setSearchTerm('');
+                //setSearchTerm('');
             } else {
                 console.log('Producto no encontrado o error en los datos', result.message);
             }
@@ -122,16 +122,26 @@ function Sales() {
             });
         }
     };
-
-    const handleShowModalForPrice = (product) => {
-        setShowModal(true);
-        setCurrentProduct(product);
-    };
     
     const handlePriceSubmit = async (price) => {
         console.log("Precio:", price);
-        // COLOCAR API PARA AÑADIR EL COSTO DEL PRODUCTO
+        if (!searchTerm) {
+            console.error("ID del producto no está disponible.");
+            return;
+        }
+    
+        const updatedData = {
+            price_sale: parseFloat(price)
+        };
+    
+        try {
+            const response = await activateProduct(searchTerm, updatedData);
+            console.log('Producto actualizado:', response.data);
+        } catch (error) {
+            console.error('Error al actualizar el producto:', error.response ? error.response.data : error.message);
+        }
     };
+    
     
 
     return (
@@ -180,9 +190,6 @@ function Sales() {
                                             <td>${product.price.toFixed(2)}</td>
                                             <td>{product.quantity}</td>
                                             <td>${product.total.toFixed(2)}</td>
-                                            <td>
-                                                <button onClick={() => handleShowModalForPrice(product)}>Actualizar Precio</button>
-                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -281,7 +288,7 @@ function Sales() {
                 title="Actualizar Precio"
                 msg={`Ingresa el nuevo precio para el producto ${currentProduct?.name}`}
                 placeholder="Escribe el precio"
-                />  // Mostrar el componente ModalCode cuando showModal es true
+                /> 
             )}
         </div>
     );
