@@ -1,3 +1,82 @@
+commit 8d6505955c8fd6ba04044f8a4b8d01b5a9598265
+Merge: 3bc2f28 983736c
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Mon Jun 3 21:06:25 2024 -0600
+
+    Merge pull request #35 from davidrolito7/almacen
+    
+    Actualización
+
+commit 983736ce3fb8a0737b1e7de8ef2db88f5d17ef8a
+Author: David <dvirdr7@gmail.com>
+Date:   Thu May 30 10:13:09 2024 -0600
+
+    Actualización
+
+commit 3bc2f282e4e60f73e0f8279614fb99f40ed8c151
+Merge: b0a123d 8427da0
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Wed May 29 13:02:50 2024 -0600
+
+    Merge pull request #34 from RosaMartinez23/menu
+    
+    Menu
+
+commit 8427da066363ec83077294d277d4d38cfab1930b
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Wed May 29 12:43:54 2024 -0600
+
+    Dashboard
+
+commit b0a123dcaecbda698a23161a7b2f6689985cebe0
+Merge: d56462f 352977b
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Wed May 29 12:09:18 2024 -0600
+
+    Merge pull request #33 from SoyFroylanMtz/david
+    
+    mensaje
+
+commit 352977b4829392e2aa6db1d0f19b08eb93429e8e
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Wed May 29 12:06:53 2024 -0600
+
+    mensaje
+
+commit 146cd4a69bbf75f33453e698fd2d2ba840243878
+Merge: 2652f33 d56462f
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Wed May 29 04:47:19 2024 -0600
+
+    Merge branch 'main' of https://github.com/Tecnologico-Oaxaca/EcoPyM-Frontend
+
+commit 2652f33209809f8b7824080682ab16fda2343838
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Wed May 29 04:43:52 2024 -0600
+
+    Cambios
+
+commit d56462f665c9db820cd9cb63ff1ba580bab1e7cc
+Merge: bd0d574 dd0eb9a
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Wed May 29 04:39:25 2024 -0600
+
+    Merge pull request #32 from RosaMartinez23/Cambios
+    
+    Solución a error
+
+commit dd0eb9a990501ed3f9225791e7fea0a2013b151a
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Wed May 29 04:14:42 2024 -0600
+
+    Solución a error
+
+commit bd0d5742c59133c0e3d9c160eaaa06b53e431505
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Wed May 29 03:23:38 2024 -0600
+
+    Actualizando log commits
+
 commit 504af8c3cb7af2a59ebb7700111f77af447c3889
 Merge: 76865b4 c4cbb22
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>

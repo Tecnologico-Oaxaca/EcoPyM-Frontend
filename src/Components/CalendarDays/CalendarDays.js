@@ -12,7 +12,7 @@ function CalendarDays({ onDaySelection }) {
         { id: 7, name: 'DOM' }
     ];
     
-    const days = new Array(daysOfWeek.length).fill(false); // Inicia todos deseleccionados
+    //const days = new Array(daysOfWeek.length).fill(false); // Inicia todos deseleccionados
     const [checkedDays, setCheckedDays] = useState(new Array(daysOfWeek.length).fill(false));
 
     const toggleDay = index => {
