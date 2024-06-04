@@ -17,6 +17,8 @@ function Sales() {
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
+    const [currentProduct, setCurrentProduct] = useState(null); 
+
     const handleSearchSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -121,6 +123,17 @@ function Sales() {
         }
     };
 
+    const handleShowModalForPrice = (product) => {
+        setShowModal(true);
+        setCurrentProduct(product);
+    };
+    
+    const handlePriceSubmit = async (price) => {
+        console.log("Precio:", price);
+        // COLOCAR API PARA AÑADIR EL COSTO DEL PRODUCTO
+    };
+    
+
     return (
         <div className='sales-container'>
             <div className='sales-container-section1'>
@@ -167,6 +180,9 @@ function Sales() {
                                             <td>${product.price.toFixed(2)}</td>
                                             <td>{product.quantity}</td>
                                             <td>${product.total.toFixed(2)}</td>
+                                            <td>
+                                                <button onClick={() => handleShowModalForPrice(product)}>Actualizar Precio</button>
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -259,9 +275,12 @@ function Sales() {
             </div>
 
             {showModal && (
-                <ModalCode onClose={closeModal} 
-                title="El producto no está activo"
-                msg="Ingresa el precio de venta"
+                <ModalCode 
+                onClose={closeModal}
+                onSubmit={handlePriceSubmit}
+                title="Actualizar Precio"
+                msg={`Ingresa el nuevo precio para el producto ${currentProduct?.name}`}
+                placeholder="Escribe el precio"
                 />  // Mostrar el componente ModalCode cuando showModal es true
             )}
         </div>

@@ -1,37 +1,27 @@
 import React, { useState } from 'react';
-import { verifyCode } from '../../services/apiUsersService';
 import { FaCheck, FaTimes } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
 import Notification from '../Notification/Notification';
 import "./ModalCode.css";
 
-function ModalCode({ onClose, title, msg }) {
-    const [code, setCode] = useState("");
-    const [notification, setNotification] = useState({ show: false, message: "" });
-    const navigate = useNavigate();
+function ModalCode({ onClose, title, msg, onSubmit, placeholder }) {
+    const [inputValue, setInputValue] = useState("");
 
-    // Aqui obtienes el codigo
-    const onYes = async (e) => {
-        e.preventDefault(); 
-        if (!code) {
+    const [notification, setNotification] = useState({ show: false, message: "" });
+
+    
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!inputValue) {
             setNotification({ show: true, message: "Todos los campos deben estar completos." });
             return;
         }
         try {
-            const verifyData = {
-              code: code
-            };
-            const response = await verifyCode(verifyData);
-            sessionStorage.setItem('userData', JSON.stringify(response.data));
-            navigate('/code/');
+            await onSubmit(inputValue);  // La función onSubmit maneja lo que sucede con el valor
+            onClose();  // Cerrar modal después de enviar
         } catch (error) {
-            if (error instanceof Error) {
-              setNotification({ show: true, message: error.message });
-            } else {
-              Object.values(error).flat().forEach(msg => {
-                setNotification({ show: true, message: msg }); 
-              });
-            }
+            console.error("Error en el ModalCode:", error);
+            setNotification({ show: true, message: error.message || "Error desconocido" });
         }
     };
 
@@ -48,16 +38,16 @@ function ModalCode({ onClose, title, msg }) {
                 <div className='ModalCheck-container-form'>
                     <p className='ModalCode-employee-info'>{title}</p> 
                     <textarea
-                        value={code}
+                        value={inputValue}
                         id="codeInput"  
                         className="ModalCode-textarea" 
-                        placeholder={msg} 
+                        placeholder={placeholder || msg} 
                         rows="4" 
                         cols="50" 
-                        onChange={(e) => setCode(e.target.value)}
+                        onChange={(e) => setInputValue(e.target.value)}
                     ></textarea>
                     <div className="ModalCheck-buttons">
-                        <button type="submit" className="ModalCheck-submit-button" id='ModalCheck-button-Si' onClick={onYes} >
+                        <button type="submit" className="ModalCheck-submit-button" id='ModalCheck-button-Si' onClick={handleSubmit} >
                             <FaCheck className="ModalCheck-arrow-Icon"/> Aceptar
                         </button> 
                         <button type="button" className="ModalCheck-submit-button" id='ModalCheck-button-No' onClick={onClose} >

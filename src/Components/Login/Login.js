@@ -5,27 +5,70 @@ import { MdLockOutline } from "react-icons/md";
 import "./Login.css";
 import { useNavigate } from 'react-router-dom';
 import ModalCode from "../ModalCode/ModalCode";
-
+import {verifyCode} from "../../services/apiUsersService";
 
 function Login() {
 
     const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
+    const [notification, setNotification] = useState({ show: false, message: "" }); // Estado para notificaciones
+
 
     const GoToRegistration = () => {
         navigate('/registro');
     };
     const GoToCode = () => {
-      setShowModal(!showModal);
+      setShowModal(true);
     };
     const onNo = () => {
       setShowModal(false); 
+      setNotification({ show: false, message: "" }); 
     };
 
+    const handleCodeSubmit = async (code) => {
+      console.log("Código:", code);
+
+      if (!code) {
+        setNotification({ show: true, message: "Todos los campos deben estar completos." });
+        return;
+    }
+    try {
+        const verifyData = {
+          code: code
+        };
+        const response = await verifyCode(verifyData);
+        sessionStorage.setItem('userData', JSON.stringify(response.data));
+        navigate('/code/');
+    } catch (error) {
+        if (error instanceof Error) {
+          setNotification({ show: true, message: error.message });
+        } else {
+          Object.values(error).flat().forEach(msg => {
+            setNotification({ show: true, message: msg }); 
+          });
+        }
+    }
+
+
+      setShowModal(false);
+    };
 
   return (
     <div className="login-container">
-      {showModal && <ModalCode onClose={onNo} />}
+      {notification.show && (
+                <div className="notification-message">
+                    {notification.message}
+                </div>
+            )}
+      {showModal && (
+          <ModalCode 
+            onClose={onNo} 
+            onSubmit={handleCodeSubmit} 
+            title="Verificación de Código"
+            msg="Por favor, introduce tu código para continuar"
+            placeholder="Escribe tu código aquí..."
+          />
+        )}
       <div className="login-left">
         <div className="login-section1"></div>
         <div className="login-section2"></div>
