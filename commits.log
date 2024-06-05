@@ -1,3 +1,16 @@
+commit 64eb77816c0a8140853fb8b5268cba4d0f7a48e9
+Merge: 47f2bdb 6bf4242
+Author: davidrolito7 <139143108+davidrolito7@users.noreply.github.com>
+Date:   Wed Jun 5 10:53:03 2024 -0600
+
+    Merge pull request #38 from davidrolito7/trend
+
+commit 47f2bdb880db8a8a89917f023ff8212cae0a4ad4
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Wed Jun 5 10:40:00 2024 -0600
+
+    Actualizando log commits
+
 commit 95f22572d0ceae7d6d2f08541edd327d62770746
 Merge: beb45ed dd43492
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
@@ -147,6 +160,12 @@ Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
 Date:   Mon Jun 3 23:56:28 2024 -0600
 
     ModalCode con console.log
+
+commit 6bf4242e7386228679b6dc0ebd1d8108ebf83b74
+Author: David <dvirdr7@gmail.com>
+Date:   Mon Jun 3 22:58:01 2024 -0600
+
+    Trend componente
 
 commit 3f5b241d6c455faadc0667620a318c465d20ed77
 Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
