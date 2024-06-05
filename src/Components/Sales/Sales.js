@@ -10,6 +10,8 @@ import { BsCashCoin } from "react-icons/bs";
 import { FaCcMastercard } from "react-icons/fa";
 import EcoVentas from "../../img/Eco-Ventas.png";
 import Notification from '../Notification/Notification';
+import ModalPay from '../ModalPay/ModalPay';
+
 
 function Sales() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -18,11 +20,22 @@ function Sales() {
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [notification, setNotification] = useState({ show: false, message: "" });
-
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const [currentProduct] = useState(null); 
 
-    
+    const openModalCobro = () => setModalOpen(true);
+    const closeModalCobro = () => {
+        setModalOpen(false);
+        resetSales();
+    };
+    //Inicialización
+    const resetSales = () => {
+        setSelectedRow(null);
+        setSelectedProduct(null);
+        setSelectedProducts([]); 
+        setSearchTerm(""); 
+    };
 
     const handleDeleteClick = (productId) => {
         const filteredProducts = selectedProducts.filter(product => product.id !== productId);
@@ -308,7 +321,7 @@ const handleSearchSubmit = async (event) => {
                     <div className="payment-method">
                         <span>Payment Method</span>
                         <div className="payment-method-icons">
-                            <button className="payment-method-button">
+                            <button className="payment-method-button-efectivo">
                                 <BsCashCoin />
                             </button>
                             <button className="payment-method-button">
@@ -319,7 +332,10 @@ const handleSearchSubmit = async (event) => {
                             </button>
                         </div>
                     </div>
-                    <button className="pay-button">COBRAR</button>
+                    <button className="pay-button" onClick={openModalCobro}>COBRAR</button>
+                    {isModalOpen && (
+                        <ModalPay closeModalCobro={closeModalCobro} total={total} />
+                    )}
                 </div>
             </div>
 

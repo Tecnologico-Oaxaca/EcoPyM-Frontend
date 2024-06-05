@@ -1,0 +1,56 @@
+.ModalPayContainer {
+    position: absolute; 
+    top: 50%;        /* Centrado vertical */
+    left: 50%;       /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Ajusta la posición exacta del centro */
+    width: 50%;      /* Ancho del modal */
+    max-width: 350px; /* Máximo ancho que puede tener */
+    background-color: white; /* Fondo blanco */
+    padding: 10px;   /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1050;  
+    border-radius: 10px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.ModalPay-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
+    z-index: 1040; /* Menor que el modal para que esté detrás */
+}
+
+.ModalPay-title {
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-align: center; 
+    font-size: 18px;
+    font-weight: bold;
+}
+.ModalPay-icono{
+    font-size: 60px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: -10px;
+}
+
+
+.ModalPay-recibo{
+    width: 50px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    margin-left: 30px;
+}
+
+.ModalPay-button{
+    margin-top: 20px;
+    display: flex;
+}
