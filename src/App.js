@@ -15,6 +15,11 @@ import RegisterCode from './Components/Employee/RegisterCode';
 import Users from './Components/Users/Users';
 import Sales from './Components/Sales/Sales';
 import Trend from './Components/Trend/Trend';
+import { FaArrowTrendUp } from "react-icons/fa6";
+import { CiShoppingBasket } from "react-icons/ci";
+import { IoExitOutline } from "react-icons/io5";
+
+
 
 function App() {
 
@@ -32,16 +37,16 @@ function App() {
     { id: 1, path: "/Menu", title: "Inicio", Icon: RiUser3Fill },
     { id: 2, path: "/Menu/MisVentas", title: "Ventas", Icon: SiHomeassistantcommunitystore },
     { id: 3, path: "/Menu/MisUsuarios", title: "Usuarios", Icon: HiMiniUserGroup },
-    { id: 4, path: "/Menu/MisProductos", title: "Productos", Icon: HiMiniUserGroup },
-    { id: 5, path: "/Menu/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup },
-    { id: 6, path: "/Menu/Tendencias", title: "Tendencias", Icon: HiMiniUserGroup }
+    { id: 4, path: "/Menu/MisProductos", title: "Productos", Icon: CiShoppingBasket },
+    //{ id: 5, path: "/Menu/MisProveedores", title: "Proveedores", Icon: HiMiniUserGroup },
+    { id: 5, path: "/Menu/Tendencias", title: "Tendencias", Icon: FaArrowTrendUp }
 
   ];
 
   const MenuSections2 = [
     { id: 1, path: "/registro/Perfil", title: "Perfil", Icon: RiUser3Fill },
     { id: 2, path: "/registro/Contactanos", title: "Contactanos", Icon: SiHomeassistantcommunitystore },
-    { id: 3, path: "/registro/Salir", title: "Salir", Icon: HiMiniUserGroup }
+    { id: 3, path: "/registro/Salir", title: "Salir", Icon: IoExitOutline }
   ];
 
 
