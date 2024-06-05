@@ -19,44 +19,7 @@ function Sales() {
 
     const [currentProduct] = useState(null); 
 
-    const handleSearchSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const result = await searchProductById(searchTerm);
-            if (result.status === 200 && result.data) {
-                const product = result.data;
-                if (product.is_active) {
-                    const index = selectedProducts.findIndex(p => p.id === product.id);
-                    if (index !== -1) {
-                        const newProducts = [...selectedProducts];
-                        newProducts[index] = {
-                            ...newProducts[index],
-                            quantity: newProducts[index].quantity + 1,
-                            total: (newProducts[index].quantity + 1) * newProducts[index].price
-                        };
-                        setSelectedProducts(newProducts);
-                    } else {
-                        const newProduct = {
-                            id: product.id,
-                            name: product.name,
-                            imageSrc: product.image,
-                            category: product.clasification.name,
-                            price: parseFloat(product.price_sale),
-                            quantity: 1,
-                            total: parseFloat(product.price_sale)
-                        };
-                        setSelectedProducts(prevProducts => [...prevProducts, newProduct]);
-                    }
-                } else {
-                    setShowModal(true); 
-                }
-            } else {
-                console.log('Producto no encontrado o error en los datos', result.message);
-            }
-        } catch (error) {
-            console.error('Error al buscar producto:', error);
-        }
-    };
+    
 
     const handleDeleteClick = (productId) => {
         const filteredProducts = selectedProducts.filter(product => product.id !== productId);
@@ -121,22 +84,80 @@ function Sales() {
             });
         }
     };
-    const handlePriceSubmit = async (price) => {
-        console.log("Precio:", price);
-        if (!searchTerm) {
-            console.error("ID del producto no está disponible.");
-            return;
-        }
-        const updatedData = {
-            price_sale: parseFloat(price)
+    const addProductToList = (product) => {
+    const index = selectedProducts.findIndex(p => p.id === product.id);
+    if (index !== -1) {
+        const newProducts = [...selectedProducts];
+        newProducts[index] = {
+            ...newProducts[index],
+            quantity: newProducts[index].quantity + 1,
+            total: (newProducts[index].quantity + 1) * newProducts[index].price
         };
-        try {
-            const response = await activateProduct(searchTerm, updatedData);
-            console.log('Producto actualizado:', response.data);
-        } catch (error) {
-            console.error('Error al actualizar el producto:', error.response ? error.response.data : error.message);
-        }
+        setSelectedProducts(newProducts);
+    } else {
+        const newProduct = {
+            id: product.id,
+            name: product.name,
+            imageSrc: product.image,
+            category: product.clasification.name,
+            price: parseFloat(product.price_sale),
+            quantity: 1,
+            total: parseFloat(product.price_sale)
+        };
+        setSelectedProducts(prevProducts => [...prevProducts, newProduct]);
+    }
+    setSearchTerm("");
+};
+
+const handlePriceSubmit = async (price) => {
+    console.log("Precio:", price);
+    if (!searchTerm) {
+        console.error("ID del producto no está disponible.");
+        return;
+    }
+    const updatedData = {
+        price_sale: parseFloat(price)
     };
+    try {
+        const response = await activateProduct(searchTerm, updatedData);
+        console.log('Producto actualizado:', response.data);
+
+        // Buscar el producto después de actualizar el precio
+        const result = await searchProductById(searchTerm);
+        if (result.status === 200 && result.data) {
+            const product = result.data;
+            if (product.is_active) {
+                addProductToList(product);
+            } else {
+                setShowModal(true);
+            }
+        } else {
+            console.log('Producto no encontrado o error en los datos', result.message);
+        }
+    } catch (error) {
+        console.error('Error al actualizar el producto:', error.response ? error.response.data : error.message);
+    }
+};
+
+const handleSearchSubmit = async (event) => {
+    event.preventDefault();
+    try {
+        const result = await searchProductById(searchTerm);
+        if (result.status === 200 && result.data) {
+            const product = result.data;
+            if (product.is_active) {
+                addProductToList(product);
+            } else {
+                setShowModal(true);
+            }
+        } else {
+            console.log('Producto no encontrado o error en los datos', result.message);
+        }
+    } catch (error) {
+        console.error('Error al buscar producto:', error);
+    }
+};
+
 
     const calculateSubtotal = () => {
         return selectedProducts.reduce((acc, product) => acc + product.total, 0);
