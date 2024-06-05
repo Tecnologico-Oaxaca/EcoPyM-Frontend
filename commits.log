@@ -1,3 +1,24 @@
+commit 58b42612e8641fef7fefaccd382d39820d7f04b2
+Merge: ff2745f 6319f67
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Tue Jun 4 21:06:31 2024 -0600
+
+    Merge pull request #42 from SoyFroylanMtz/cambios
+    
+    Agregar y Limpiar Buscador
+
+commit 6319f67a95040e685f7fbb93cb729027f15d9cf2
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Tue Jun 4 21:05:01 2024 -0600
+
+    Agregar y Limpiar Buscador
+
+commit ff2745fe7322064df6d4397e04747f5c926cfb37
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Tue Jun 4 20:51:01 2024 -0600
+
+    Actualizando log commits
+
 commit 71fac9fe9fbf3198b5afe12b8ef7eacd83e59a33
 Merge: 992d096 863e9ad
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
