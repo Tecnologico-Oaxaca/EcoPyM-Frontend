@@ -48,9 +48,8 @@ function Sales() {
                         setSelectedProducts(prevProducts => [...prevProducts, newProduct]);
                     }
                 } else {
-                    setShowModal(true);  // Mostrar el modal si el producto no está activo
+                    setShowModal(true); 
                 }
-                //setSearchTerm('');
             } else {
                 console.log('Producto no encontrado o error en los datos', result.message);
             }
@@ -122,18 +121,15 @@ function Sales() {
             });
         }
     };
-    
     const handlePriceSubmit = async (price) => {
         console.log("Precio:", price);
         if (!searchTerm) {
             console.error("ID del producto no está disponible.");
             return;
         }
-    
         const updatedData = {
             price_sale: parseFloat(price)
         };
-    
         try {
             const response = await activateProduct(searchTerm, updatedData);
             console.log('Producto actualizado:', response.data);
@@ -141,8 +137,14 @@ function Sales() {
             console.error('Error al actualizar el producto:', error.response ? error.response.data : error.message);
         }
     };
-    
-    
+
+    const calculateSubtotal = () => {
+        return selectedProducts.reduce((acc, product) => acc + product.total, 0);
+    };
+
+    const subtotal = calculateSubtotal();
+    const iva = subtotal * 0; 
+    const total = subtotal + iva;
 
     return (
         <div className='sales-container'>
@@ -252,15 +254,15 @@ function Sales() {
                         </div>
                         <div className="sales-summary-item">
                             <span>Subtotal</span>
-                            <span>$380.90</span>
+                            <span>${subtotal.toFixed(2)}</span>
                         </div>
                         <div className="sales-summary-item iva-item">
                             <span>IVA</span>
-                            <span>$12.78</span>
+                            <span>${iva.toFixed(2)}</span>
                         </div>
                         <div className="sales-summary-total">
                             <span>Total</span>
-                            <span>$390.66</span>
+                            <span>${total.toFixed(2)}</span>
                         </div>
                     </div>
                     <div className="payment-method">
