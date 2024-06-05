@@ -1,0 +1,70 @@
+.modalusers-content{
+    background-color: white;
+    padding: 10px 20px 0px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001; /* Asegúrate de que el contenido está sobre el fondo oscuro */
+    width: 90%; /* O ajusta según necesidad */
+    max-width: 500px; /* O ajusta según necesidad */
+    height: auto;
+}
+
+.users-inputGroup input, .users-custom-select{
+    border: 1.5px solid #ccc;
+    width: 92%;
+    margin: 5px 14px;
+    padding: 7px 5px;
+    border-radius: 8px;
+    outline: none;
+    color: #868383;
+}
+
+.users-label{
+    font-size: 14px;
+    margin-left: 14px;
+}
+
+.users-inputGroupMedida input{
+    width: 200px;
+    flex: 1;
+    padding: 7px 25px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    margin: 5px 0px 0px 0px;
+    color: #868383;
+
+}
+.users-inputGroup-select{
+    width: 200px;
+}
+.users-inputGroups-container {
+    display: flex; 
+    justify-content: space-between;
+    gap: 15px;
+}
+.users-container-code-section2{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.users-container-center{
+    background-color: rgb(239, 237, 237);
+    height: 70px;
+    width: 80%;
+    margin: 0% 10%;
+    border-radius: 15px;
+}
+.users-icon-sharing{
+    margin-top: 3%;
+}
+.users-buttons{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: -2%;
+}
+.users-generated-code{
+    text-align: center;
+    padding: 5%;
+}
