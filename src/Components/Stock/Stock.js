@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState,useEffect, useRef } from 'react';
 import { IoCameraOutline } from "react-icons/io5";
 import { FaSearch } from 'react-icons/fa';
 import { FaPlus, FaMinus } from 'react-icons/fa';
@@ -7,6 +7,7 @@ import { MdOutlineNavigateBefore } from "react-icons/md";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { PiUserThin } from "react-icons/pi";
 import ModalProducts from '../ModalProducts/ModalProducts';
+import { showProducts } from '../../services/apiProductService';
 
 
 import "./Stock.css"
@@ -18,6 +19,8 @@ function POS() {
     const [currentPage, setCurrentPage] = useState(1);
     const [modalOpen, setModalOpen] = useState(false);
     const [productsPerPage] = useState(12);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
 
     // Areglo para poner la API DE CATEGORIAS
@@ -32,7 +35,7 @@ function POS() {
     ];
 
     //ARRELO PARA PONER LA API DE PRODUCTOS (DESCUENTO SI ES QUE TIENE, IMG, ALT TEXT, CANTIDAD, PRECIO, DEPARTAMENTO, NOMBRE)
-    const products = [
+    /*const products = [
         { id: 1, discount: '52% Off', imageSrc: "https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750105535626L.jpg?odnHeight=580&odnWidth=580&odnBg=FFFFFF", altText: 'Yoghurt', count: '15', price: '$45', supplier: 'Abasur', productName: 'Yoghurt Griego 10g' },
         { id: 2, discount: '52% Off', imageSrc: "https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750036600500L.jpg?odnHeight=580&odnWidth=580&odnBg=FFFFFF", altText: 'CornFlakes', count: '23', price: '$35', supplier: 'Abasur', productName: 'Cereal CornFlakes 900g' },
         { id: 3, discount: '52% Off', imageSrc: "tomato", altText: 'Tomato', count: '43', price: '$20', supplier: 'Central de Abastos', productName: 'Tomate 1kg' },
@@ -41,7 +44,7 @@ function POS() {
         { id: 6, discount: '52% Off', imageSrc: "MicelarG", altText: 'HAgua Micelar Garnier', count: '12', price: '$110', supplier: 'Mini Abastos', productName: 'Helado Sabor Chocolate 900g' },
         { id: 7, discount: '52% Off', imageSrc: "ArrozVerde", altText: 'Arroz Verde', count: '57', price: '$39', supplier: 'Abasur', productName: 'Arroz Verde 900g' },
         { id: 8, discount: '52% Off', imageSrc: "Johnsons", altText: 'Jabon de Baño', count: '21', price: '$70', supplier: 'Mini Abastos', productName: 'Jabon de Baño Johnsons' },
-    ];
+    ];*/
 
 
     //PONER LA API QUE CONSULTA MI TOP 3 DE PRODUCTOS MAS VENDIDOS
@@ -61,6 +64,20 @@ function POS() {
         { id: 4, imageSrc: "IceCream", altText: 'Producto numero 2', name: 'Helado sabor Chocolate', index: '1.75%' },
         { id: 5, imageSrc: "connflakes", altText: 'Producto numero 3', name: 'Cereal CornFlakes 900g', index: '1.90%' }
     ];
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const fetchedProducts = await showProducts();
+                setProducts(fetchedProducts);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+                setLoading(false);
+            }
+        };
+        fetchProducts();
+    }, []);
 
 
     //AQUI OBTENGO EL VALOR AL MOMENTO DE BUSCAR
@@ -94,6 +111,10 @@ function POS() {
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
     const paginate = pageNumber => setCurrentPage(pageNumber);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="stock-products-container">
@@ -135,11 +156,11 @@ function POS() {
                         {currentProducts.map((product, index) => (
                             <div className="stock-container-products" key={product.id}>
                                 <div className="stock-tbody-header">
-                                    <p className="stock-header">{product.discount}</p>
+                                    <p className="stock-header">{product.price_sale}% Off</p>
                                     <IoCameraOutline className="stock-icono-classname-camera" />
                                 </div>
                                 <div className="stock-info-container">
-                                    <img className="stock-products-img" src={product.imageSrc} alt={product.altText} />
+                                    <img className="stock-products-img" src={product.image} alt={product.altText} />
                                     <div
                                         className="stock-icono-classname-plus"
                                         onMouseEnter={() => setHoverIndex(index)}
@@ -148,7 +169,7 @@ function POS() {
                                         {hoverIndex === index ? (
                                             <>
                                                 <FaMinus className="stock-icon-minus" />
-                                                <span className="stock-number">{product.count}</span>
+                                                <span className="stock-number">{product.stock}</span>
                                                 <FaPlus className="stock-icon-plus" />
                                             </>
                                         ) : (
@@ -156,9 +177,9 @@ function POS() {
                                         )}
                                     </div>
                                     <div className="stock-inferior-container">
-                                        <p className="stock-Cost">{product.price}</p>
-                                        <p className="stock-proveedor">{product.supplier}</p>
-                                        <p className="stock-name-product">{product.productName}</p>
+                                        <p className="stock-Cost">${product.price_sale}</p>
+                                        <p className="stock-proveedor">{product.brand?.name}</p>
+                                        <p className="stock-name-product">{product.name}</p>
                                     </div>
                                 </div>
                             </div>
