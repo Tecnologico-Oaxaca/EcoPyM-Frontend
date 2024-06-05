@@ -96,14 +96,6 @@ function Employee() {
                   });
                 }
               }
-
-            //AQUI RECOLECTO LOS VALORES DE LOS INPUTS
-            console.log("Nombre del Empleado:", Employeename);
-            console.log("Rol del propietario:", EmployeeRol);
-            console.log("Salario:", EmployeeSalary);
-            console.log("Turno:", EmployeeShift);
-            console.log("Días Seleccionados:", selectedDays);
-            console.log("Codigo:", code);
             <ModalCheck/>
         }
     };

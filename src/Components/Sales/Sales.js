@@ -9,6 +9,7 @@ import { FaMoneyCheck } from "react-icons/fa";
 import { BsCashCoin } from "react-icons/bs";
 import { FaCcMastercard } from "react-icons/fa";
 import EcoVentas from "../../img/Eco-Ventas.png";
+import Notification from '../Notification/Notification';
 
 function Sales() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -16,6 +17,8 @@ function Sales() {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [notification, setNotification] = useState({ show: false, message: "" });
+
 
     const [currentProduct] = useState(null); 
 
@@ -110,9 +113,8 @@ function Sales() {
 };
 
 const handlePriceSubmit = async (price) => {
-    console.log("Precio:", price);
     if (!searchTerm) {
-        console.error("ID del producto no está disponible.");
+        setNotification({ show: true, message: "ID del producto no está disponible." });
         return;
     }
     const updatedData = {
@@ -120,24 +122,33 @@ const handlePriceSubmit = async (price) => {
     };
     try {
         const response = await activateProduct(searchTerm, updatedData);
-        console.log('Producto actualizado:', response.data);
-
-        // Buscar el producto después de actualizar el precio
-        const result = await searchProductById(searchTerm);
-        if (result.status === 200 && result.data) {
-            const product = result.data;
-            if (product.is_active) {
-                addProductToList(product);
+        if (response.status === 200) {
+            setNotification({ show: true, message: response.message });
+            
+            // Intentar buscar el producto y añadirlo a la lista si es necesario
+            const result = await searchProductById(searchTerm);
+            if (result.status === 200 && result.data) {
+                const product = result.data;
+                if (product.is_active) {
+                    addProductToList(product);
+                    setShowModal(false); // Cerrar el modal solo si todo es exitoso
+                } else {
+                    setShowModal(true); // Mantener el modal abierto si el producto no está activo
+                }
             } else {
-                setShowModal(true);
+                setNotification({ show: true, message: result.message });
             }
         } else {
-            console.log('Producto no encontrado o error en los datos', result.message);
+            setNotification({ show: true, message: response.message });
+            setShowModal(true); // Mantener el modal abierto en caso de error
         }
     } catch (error) {
-        console.error('Error al actualizar el producto:', error.response ? error.response.data : error.message);
+        const priceSaleError = error.response?.data?.error?.price_sale?.[0] ?? 'Error al actualizar el producto';
+        setNotification({ show: true, message: priceSaleError });
     }
 };
+
+
 
 const handleSearchSubmit = async (event) => {
     event.preventDefault();
@@ -151,10 +162,11 @@ const handleSearchSubmit = async (event) => {
                 setShowModal(true);
             }
         } else {
-            console.log('Producto no encontrado o error en los datos', result.message);
+            setNotification({ show: true, message: result.message });
         }
     } catch (error) {
-        console.error('Error al buscar producto:', error);
+        const errorMessage = error.response?.data?.message ?? 'Error al conectar con el servicio';
+        setNotification({ show: true, message: errorMessage });
     }
 };
 
@@ -170,6 +182,13 @@ const handleSearchSubmit = async (event) => {
     return (
         <div className='sales-container'>
             <div className='sales-container-section1'>
+            {notification.show && 
+                    <Notification 
+                    message={notification.message} 
+                    show={notification.show} 
+                    onClose={() => setNotification({ show: false, message: "" })}
+                    />
+                }
                 <div className="stock-cabecera">
                     <MdOutlineSegment className="stock-icono-classname-lines" />
                     <div className="stock-title">
