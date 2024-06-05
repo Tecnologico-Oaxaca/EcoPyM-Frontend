@@ -1,3 +1,24 @@
+commit 0a0ff173df52c964b8f7bd00fe26c2ec775873b8
+Merge: cdd436c b6de5df
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Tue Jun 4 21:47:26 2024 -0600
+
+    Merge pull request #43 from SoyFroylanMtz/rama-nueva
+    
+    Cambiar console a Notification
+
+commit b6de5df65a0cbb7ca53edf318826f7423b1d5e84
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Tue Jun 4 21:46:00 2024 -0600
+
+    Cambiar console a Notification
+
+commit cdd436cbab7b7dd3cbacaef226c5d84d1d3fc6db
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Tue Jun 4 21:07:48 2024 -0600
+
+    Actualizando log commits
+
 commit 58b42612e8641fef7fefaccd382d39820d7f04b2
 Merge: ff2745f 6319f67
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
