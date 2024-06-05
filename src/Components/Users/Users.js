@@ -2,7 +2,7 @@ import React, { useState} from 'react'
 import './Users.css'
 import { FaPlus } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
-
+import ModalUser from '../ModalUser/ModalUser';
 
 
 function Users() {
@@ -10,6 +10,9 @@ function Users() {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage] = useState(12);
+    const [modalOpen, setModalOpen] = useState(false);
+
+
 
     const users = [
         {
@@ -73,6 +76,11 @@ function Users() {
         setSearchTerm(event.target.value);
     };
 
+    //ABRIR MODAL DE REGISTRO USUARIOS
+    const toggleModal = () => {
+        setModalOpen(!modalOpen);
+    };
+
 
     const indexOfLastProduct = currentPage * usersPerPage;
     const indexOfFirstProduct = indexOfLastProduct - usersPerPage;
@@ -86,7 +94,8 @@ function Users() {
                 <div className="users-title">
                     <h2 className="users-header">Usuarios Existentes</h2>
                     <div className="users-agregar">
-                        <FaPlus className='users-button-añadir'/><button className="users-button-plus">Agregar</button>
+                        <FaPlus className='users-button-añadir'/><button className="users-button-plus" onClick={toggleModal}>Agregar</button>
+                        {modalOpen && <ModalUser closeModal={toggleModal} />}
                     </div>
                     
                 </div>
@@ -106,7 +115,7 @@ function Users() {
             <div className="users-body">
                 {currentUsers.map((user, index) => (
                 <div key={user.id} className="users-body-container">
-                    <div class="image-container">
+                    <div className="image-container">
                         <img className="users-container-img" src={user.imageSrc} alt="Foto del Personal" />
                     </div>
                     <div className="users-body-container-info">
