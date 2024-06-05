@@ -1,3 +1,54 @@
+commit 95f22572d0ceae7d6d2f08541edd327d62770746
+Merge: beb45ed dd43492
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Wed Jun 5 10:37:35 2024 -0600
+
+    Merge pull request #46 from SoyFroylanMtz/produc
+    
+    mensaje
+
+commit dd43492ffed472665602d021e7356c072855f91d
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Wed Jun 5 10:37:01 2024 -0600
+
+    mensaje
+
+commit beb45ed76507d748d2824cb056b083666bca1300
+Merge: d77bcda bb8bb4b
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Wed Jun 5 10:19:25 2024 -0600
+
+    Merge pull request #45 from RosaMartinez23/Cobrar
+    
+    Creación del ModalPay
+
+commit bb8bb4bb758021d9b94d1d1dfa22b333ba108ae8
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Wed Jun 5 09:26:27 2024 -0600
+
+    Creación del ModalPay
+
+commit d77bcda325ea9d6d76cc108bab703fc40742efae
+Merge: 7e354d3 d2f664e
+Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
+Date:   Wed Jun 5 07:38:39 2024 -0600
+
+    Merge pull request #44 from RosaMartinez23/Modal
+    
+    Creación Modal Registro Usuarios
+
+commit d2f664e46ebba54785761abe7db554b542a68d70
+Author: RosaMartinez23 <20161251@itoaxaca.edu.mx>
+Date:   Wed Jun 5 06:45:23 2024 -0600
+
+    Creación Modal Registro Usuarios
+
+commit 7e354d34c57b19bdde32a4484ece7c32f386703a
+Author: SoyFroylanMtz <soyfroylanmtzcarlos@gmail.com>
+Date:   Tue Jun 4 21:48:32 2024 -0600
+
+    Actualizando log commits
+
 commit 0a0ff173df52c964b8f7bd00fe26c2ec775873b8
 Merge: cdd436c b6de5df
 Author: SoyFroylanMtz <139150923+SoyFroylanMtz@users.noreply.github.com>
